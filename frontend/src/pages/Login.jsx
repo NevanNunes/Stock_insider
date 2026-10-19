@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ShieldAlert, Eye, EyeOff, LogIn } from 'lucide-react';
 
@@ -147,6 +147,13 @@ export default function Login() {
                 Trader Terminal
               </button>
             </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-md)', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            New user?{' '}
+            <Link to="/register" style={{ color: 'var(--accent-blue)', fontWeight: 600, textDecoration: 'none' }}>
+              Create an Account
+            </Link>
           </div>
         </div>
 

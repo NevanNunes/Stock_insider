@@ -25,6 +25,19 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const register = async (payload) => {
+    setLoading(true);
+    try {
+      const { data } = await authAPI.register(payload);
+      localStorage.setItem('access_token', data.access_token);
+      localStorage.setItem('user', JSON.stringify(data));
+      setUser(data);
+      return data;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem('access_token');
     localStorage.removeItem('user');
@@ -35,7 +48,7 @@ export function AuthProvider({ children }) {
   const isTrader = user?.role === 'trader' || user?.role === 'admin';
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, isAdmin, isTrader }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, isAdmin, isTrader }}>
       {children}
     </AuthContext.Provider>
   );

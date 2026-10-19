@@ -9,6 +9,7 @@ import Sidebar from './components/Sidebar';
 import ToastContainer from './components/ToastAlert';
 
 import Login from './pages/Login';
+import Register from './pages/Register';
 import AdminDashboard from './pages/AdminDashboard';
 import TraderTerminal from './pages/TraderTerminal';
 import Alerts from './pages/Alerts';
@@ -77,6 +78,7 @@ export default function App() {
         <ToastProvider>
           <Routes>
             <Route path="/login" element={<LoginGate />} />
+            <Route path="/register" element={<RegisterGate />} />
             <Route path="/*" element={<AppShell />} />
           </Routes>
         </ToastProvider>
@@ -91,3 +93,10 @@ function LoginGate() {
   if (user) return <Navigate to={user.role === 'admin' ? '/dashboard' : '/terminal'} replace />;
   return <Login />;
 }
+
+function RegisterGate() {
+  const { user } = useAuth();
+  if (user) return <Navigate to={user.role === 'admin' ? '/dashboard' : '/terminal'} replace />;
+  return <Register />;
+}
+
