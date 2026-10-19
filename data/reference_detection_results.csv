@@ -1,0 +1,868 @@
+trade_id,trade_code,trader_id,symbol,is_injected_anomaly,anomaly_type,expected_severity,statistical_score,ml_score,context_score,combined_anomaly_score,z_risk_level,risk_level,predicted_anomaly,explanation
+20001,TRD020-000095,TRD020,ALPHATECH,False,NONE,NONE,0.47,0.7448,0.4395,0.5738,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred shortly before a synthetic market event."
+20002,TRD028-000824,TRD028,NUHEALTH,False,NONE,NONE,0.4047,0.5552,0.0732,0.3986,LOW,LOW,False,
+20003,TRD037-000923,TRD037,NUHEALTH,False,NONE,NONE,0.396,0.0928,0.0275,0.201,LOW,LOW,False,
+20004,TRD035-000621,TRD035,IOTATELECOM,False,NONE,NONE,0.1906,0.0888,0.0,0.1118,LOW,LOW,False,
+20005,TRD012-000379,TRD012,EPSILONBANK,False,NONE,NONE,0.2423,0.5844,0.0094,0.3326,LOW,LOW,False,
+20006,TRD041-000417,TRD041,GAMMAIND,False,NONE,NONE,0.127,0.8908,0.0356,0.4142,LOW,LOW,False,
+20007,TRD037-000924,TRD037,ZETAPHARMA,False,NONE,NONE,0.3796,0.7622,0.0,0.4567,LOW,LOW,False,
+20008,TRD037-000925,TRD037,OMICRONMFG,False,NONE,NONE,0.1732,0.71,0.4381,0.4409,LOW,LOW,False,
+20009,TRD003-000390,TRD003,THETAENERGY,False,NONE,NONE,0.348,0.744,0.0074,0.4383,LOW,LOW,False,
+20010,TRD043-000498,TRD043,TAUAUTO,True,LARGE_TRADE,HIGH,1.0,0.5862,0.0047,0.6354,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.6 standard deviations above the trader's historical average.
+- Quantity was 6.5 standard deviations above the trader's historical average."
+20011,TRD015-000403,TRD015,EPSILONBANK,False,NONE,NONE,0.0925,0.4644,0.0,0.2228,LOW,LOW,False,
+20012,TRD047-000609,TRD047,THETAENERGY,False,NONE,NONE,0.2836,0.1564,0.0,0.176,LOW,LOW,False,
+20013,TRD003-000391,TRD003,THETAENERGY,False,NONE,NONE,0.1538,0.4846,0.0,0.2554,LOW,LOW,False,
+20014,TRD015-000404,TRD015,EPSILONBANK,False,NONE,NONE,0.0709,0.4377,0.0,0.2034,LOW,LOW,False,
+20015,TRD041-000418,TRD041,MUFINANCE,True,BEHAVIOR_CHANGE,HIGH,1.0,0.6298,0.0,0.6519,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.4 standard deviations above the trader's historical average.
+- Quantity was 5.6 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20016,TRD035-000622,TRD035,MUFINANCE,False,NONE,NONE,0.4425,0.5618,0.0,0.4017,LOW,LOW,False,
+20017,TRD037-000926,TRD037,PIBANK,True,LARGE_QUANTITY,HIGH,1.0,0.7998,0.0,0.7199,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 5.7 standard deviations above the trader's historical average."
+20018,TRD035-000623,TRD035,MUFINANCE,False,NONE,NONE,0.4941,0.7216,0.0,0.4863,LOW,LOW,False,
+20019,TRD044-000845,TRD044,MUFINANCE,False,NONE,NONE,0.1634,0.6834,0.0,0.3387,LOW,LOW,False,
+20020,TRD041-000419,TRD041,MUFINANCE,True,BEHAVIOR_CHANGE,HIGH,1.0,0.662,0.0,0.6648,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.9 standard deviations above the trader's historical average.
+- Quantity was 6.3 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20021,TRD012-000380,TRD012,EPSILONBANK,False,NONE,NONE,0.4807,0.2553,0.0,0.2944,LOW,LOW,False,
+20022,TRD020-000096,TRD020,KAPPAFMCG,False,NONE,NONE,0.278,0.7237,0.0,0.4007,LOW,LOW,False,
+20023,TRD028-000825,TRD028,ALPHATECH,False,NONE,NONE,0.8124,0.723,0.4395,0.7021,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 3.2 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event."
+20024,TRD047-000610,TRD047,GAMMAIND,False,NONE,NONE,0.2245,0.7518,0.0356,0.3977,LOW,LOW,False,
+20025,TRD012-000381,TRD012,PIBANK,False,NONE,NONE,0.1384,0.7399,0.0,0.3513,LOW,LOW,False,
+20026,TRD017-000252,TRD017,IOTATELECOM,False,NONE,NONE,0.3551,0.0281,0.0007,0.1534,LOW,LOW,False,
+20027,TRD045-000175,TRD045,MUFINANCE,False,NONE,NONE,0.1412,0.9914,0.183,0.4896,LOW,LOW,False,
+20028,TRD044-000846,TRD044,MUFINANCE,False,NONE,NONE,0.1975,0.6468,0.0,0.3377,LOW,LOW,False,
+20029,TRD046-001003,TRD046,BETACORP,False,NONE,NONE,0.3264,0.9678,0.1096,0.5396,LOW,LOW,False,
+20030,TRD003-000392,TRD003,THETAENERGY,False,NONE,NONE,0.074,0.3635,0.0,0.175,LOW,LOW,False,
+20031,TRD013-000870,TRD013,GAMMAIND,False,NONE,NONE,0.2249,0.9368,0.0356,0.4718,LOW,LOW,False,
+20032,TRD050-000077,TRD050,RHOSOFT,True,LARGE_QUANTITY,HIGH,1.0,0.9182,0.1842,0.8041,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.1 standard deviations above the trader's historical average."
+20033,TRD020-000097,TRD020,ALPHATECH,True,LARGE_TRADE,HIGH,1.0,0.714,0.4395,0.7735,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 4.9 standard deviations above the trader's historical average.
+- Quantity was 6.1 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20034,TRD044-000847,TRD044,BETACORP,False,NONE,NONE,0.369,0.3032,0.0391,0.2767,LOW,LOW,False,
+20035,TRD013-000871,TRD013,GAMMAIND,False,NONE,NONE,0.0694,0.9528,0.0356,0.416,LOW,LOW,False,
+20036,TRD013-000872,TRD013,NUHEALTH,False,NONE,NONE,0.0978,0.3391,0.0275,0.1803,LOW,LOW,False,
+20037,TRD044-000848,TRD044,MUFINANCE,False,NONE,NONE,0.1687,0.4608,0.0,0.2518,LOW,LOW,False,
+20038,TRD012-000382,TRD012,XITECH,False,NONE,NONE,0.4357,0.904,0.4649,0.6288,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred shortly before a synthetic market event."
+20039,TRD012-000383,TRD012,PIBANK,False,NONE,NONE,0.14,0.8282,0.0,0.3873,LOW,LOW,False,
+20040,TRD026-000389,TRD026,GAMMAIND,True,LARGE_TRADE,HIGH,1.0,0.9504,0.1376,0.8077,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 5.3 standard deviations above the trader's historical average.
+- Quantity was 21.4 standard deviations above the trader's historical average."
+20041,TRD031-000401,TRD031,IOTATELECOM,False,NONE,NONE,0.3939,0.0454,0.0,0.1757,LOW,LOW,False,
+20042,TRD016-000388,TRD016,ALPHATECH,False,NONE,NONE,0.4442,0.84,0.454,0.6045,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred shortly before a synthetic market event."
+20043,TRD026-000390,TRD026,ALPHATECH,False,NONE,NONE,0.6387,0.7472,0.4395,0.6422,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20044,TRD026-000391,TRD026,ALPHATECH,True,PRE_EVENT_ACTIVITY,HIGH,1.0,0.7662,0.4395,0.7944,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 4.0 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event."
+20045,TRD047-000611,TRD047,GAMMAIND,False,NONE,NONE,0.1715,0.8694,0.0356,0.4235,LOW,LOW,False,
+20046,TRD006-000711,TRD006,SIGMAPOWER,False,NONE,NONE,0.2004,0.9952,0.6859,0.6154,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20047,TRD041-000420,TRD041,BETACORP,False,NONE,NONE,0.1641,0.1808,0.0391,0.1458,LOW,LOW,False,
+20048,TRD019-000747,TRD019,ALPHATECH,False,NONE,NONE,0.3274,0.8296,0.4395,0.5507,LOW,LOW,False,
+20049,TRD015-000405,TRD015,PIBANK,False,NONE,NONE,0.0534,0.5276,0.0,0.2324,LOW,LOW,False,
+20050,TRD039-000164,TRD039,BETACORP,False,NONE,NONE,0.2783,0.5544,0.0391,0.3409,LOW,LOW,False,
+20051,TRD035-000624,TRD035,KAPPAFMCG,False,NONE,NONE,0.2498,0.5186,0.0,0.3073,LOW,LOW,False,
+20052,TRD047-000612,TRD047,DELTAENG,False,NONE,NONE,0.1711,0.7463,0.0,0.367,LOW,LOW,False,
+20053,TRD024-000262,TRD024,UPSILONMEDS,False,NONE,NONE,0.1747,0.3963,0.0233,0.2331,LOW,LOW,False,
+20054,TRD026-000392,TRD026,TAUAUTO,False,NONE,NONE,0.1576,0.2925,0.0,0.18,LOW,LOW,False,
+20055,TRD016-000389,TRD016,EPSILONBANK,False,NONE,NONE,0.3182,0.6244,0.0,0.3771,LOW,LOW,False,
+20056,TRD047-000613,TRD047,BETACORP,False,NONE,NONE,0.621,0.6083,0.0391,0.4995,MEDIUM,LOW,False,
+20057,TRD029-000655,TRD029,LAMBDAINFRA,False,NONE,NONE,0.1407,0.7816,0.0193,0.3728,LOW,LOW,False,
+20058,TRD035-000625,TRD035,MUFINANCE,True,LARGE_TRADE,HIGH,1.0,0.8644,0.0,0.7458,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.2 standard deviations above the trader's historical average.
+- Quantity was 5.6 standard deviations above the trader's historical average."
+20059,TRD043-000499,TRD043,OMICRONMFG,False,NONE,NONE,0.2482,0.6878,0.4381,0.462,LOW,LOW,False,
+20060,TRD013-000873,TRD013,LAMBDAINFRA,False,NONE,NONE,0.2458,0.8597,0.0193,0.4461,LOW,LOW,False,
+20061,TRD015-000406,TRD015,EPSILONBANK,False,NONE,NONE,0.3232,0.5563,0.0,0.3518,LOW,LOW,False,
+20062,TRD026-000393,TRD026,TAUAUTO,False,NONE,NONE,0.1813,0.5318,0.0,0.2852,LOW,LOW,False,
+20063,TRD024-000263,TRD024,ALPHATECH,True,UNUSUAL_SYMBOL,MEDIUM,0.1258,0.893,0.6358,0.5346,LOW,LOW,False,
+20064,TRD050-000078,TRD050,XITECH,False,NONE,NONE,0.0807,0.9911,0.4649,0.5217,LOW,LOW,False,
+20065,TRD013-000874,TRD013,GAMMAIND,False,NONE,NONE,0.196,0.9238,0.0356,0.4551,LOW,LOW,False,
+20066,TRD041-000421,TRD041,MUFINANCE,False,NONE,NONE,0.6278,0.175,0.0,0.3211,MEDIUM,LOW,False,
+20067,TRD026-000394,TRD026,DELTAENG,False,NONE,NONE,0.3458,0.9705,0.1975,0.566,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The symbol is rarely traded by this trader."
+20068,TRD026-000395,TRD026,ALPHATECH,True,PRE_EVENT_ACTIVITY,HIGH,1.0,0.9667,0.4395,0.8746,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 5.0 standard deviations above the trader's historical average.
+- Quantity was 3.5 standard deviations above the trader's historical average.
+- Trading frequency was significantly higher than normal (7 trades in the last hour).
+- The trade occurred shortly before a synthetic market event."
+20069,TRD041-000422,TRD041,OMICRONMFG,False,NONE,NONE,0.1626,0.7056,0.4381,0.4349,LOW,LOW,False,
+20070,TRD005-000088,TRD005,BETACORP,False,NONE,NONE,0.1484,0.9117,0.0391,0.4319,LOW,LOW,False,
+20071,TRD035-000626,TRD035,IOTATELECOM,False,NONE,NONE,0.1877,0.07,0.35,0.1731,LOW,LOW,False,
+20072,TRD041-000423,TRD041,BETACORP,True,BEHAVIOR_CHANGE,LOW,0.9696,0.3822,0.0391,0.5485,HIGH,LOW,False,
+20073,TRD018-000124,TRD018,XITECH,True,LARGE_TRADE,HIGH,1.0,0.8798,0.4649,0.8449,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.6 standard deviations above the trader's historical average.
+- Quantity was 14.6 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event."
+20074,TRD015-000407,TRD015,PIBANK,True,BEHAVIOR_CHANGE,LOW,0.8,0.7399,0.0,0.616,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.2 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20075,TRD046-001004,TRD046,UPSILONMEDS,False,NONE,NONE,0.2937,0.8478,0.0233,0.4613,LOW,LOW,False,
+20076,TRD015-000408,TRD015,EPSILONBANK,False,NONE,NONE,0.1329,0.7395,0.0,0.349,LOW,LOW,False,
+20077,TRD035-000627,TRD035,KAPPAFMCG,False,NONE,NONE,0.1437,0.6571,0.0,0.3203,LOW,LOW,False,
+20078,TRD015-000409,TRD015,PIBANK,True,BEHAVIOR_CHANGE,HIGH,1.0,0.8811,0.0,0.7524,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.8 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20079,TRD028-000826,TRD028,NUHEALTH,False,NONE,NONE,0.3157,0.1524,0.0275,0.1927,LOW,LOW,False,
+20080,TRD015-000410,TRD015,PIBANK,False,NONE,NONE,0.059,0.8138,0.0,0.3491,LOW,LOW,False,
+20081,TRD044-000849,TRD044,XITECH,False,NONE,NONE,0.2557,0.7643,0.4649,0.501,LOW,LOW,False,
+20082,TRD009-000407,TRD009,KAPPAFMCG,False,NONE,NONE,0.2058,0.7348,0.0123,0.3787,LOW,LOW,False,
+20083,TRD022-000083,TRD022,NUHEALTH,True,UNUSUAL_SYMBOL,LOW,0.0916,0.9229,0.2166,0.4491,LOW,LOW,False,
+20084,TRD012-000384,TRD012,EPSILONBANK,False,NONE,NONE,0.2341,0.4382,0.0,0.2689,LOW,LOW,False,
+20085,TRD046-001005,TRD046,UPSILONMEDS,False,NONE,NONE,0.1587,0.7664,0.0233,0.3747,LOW,LOW,False,
+20086,TRD006-000712,TRD006,EPSILONBANK,False,NONE,NONE,0.1727,0.7222,0.0081,0.3596,LOW,LOW,False,
+20087,TRD013-000875,TRD013,NUHEALTH,False,NONE,NONE,0.2707,0.2738,0.0275,0.2233,LOW,LOW,False,
+20088,TRD019-000748,TRD019,THETAENERGY,False,NONE,NONE,0.0553,0.1533,0.0,0.0834,LOW,LOW,False,
+20089,TRD031-000402,TRD031,RHOSOFT,False,NONE,NONE,0.0948,0.332,0.0191,0.1745,LOW,LOW,False,
+20090,TRD029-000656,TRD029,LAMBDAINFRA,False,NONE,NONE,0.3368,0.7407,0.0193,0.4349,LOW,LOW,False,
+20091,TRD029-000657,TRD029,RHOSOFT,False,NONE,NONE,0.443,0.6077,0.0191,0.4241,LOW,LOW,False,
+20092,TRD049-000265,TRD049,RHOSOFT,False,NONE,NONE,0.1462,0.6481,0.0191,0.3215,LOW,LOW,False,
+20093,TRD035-000628,TRD035,MUFINANCE,False,NONE,NONE,0.4676,0.5463,0.0,0.4056,LOW,LOW,False,
+20094,TRD028-000827,TRD028,BETACORP,True,LARGE_QUANTITY,HIGH,1.0,0.1798,0.0391,0.4797,HIGH,LOW,False,
+20095,TRD010-000304,TRD010,GAMMAIND,True,LARGE_TRADE,HIGH,1.0,0.9952,0.0356,0.8052,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 4.5 standard deviations above the trader's historical average.
+- Quantity was 20.0 standard deviations above the trader's historical average."
+20096,TRD015-000411,TRD015,EPSILONBANK,True,BEHAVIOR_CHANGE,HIGH,1.0,0.9317,0.0,0.7727,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 5.2 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20097,TRD039-000165,TRD039,ETAMOTORS,False,NONE,NONE,0.254,0.082,0.0,0.1344,LOW,LOW,False,
+20098,TRD016-000390,TRD016,ZETAPHARMA,False,NONE,NONE,0.376,0.546,0.0161,0.372,LOW,LOW,False,
+20099,TRD006-000713,TRD006,KAPPAFMCG,False,NONE,NONE,0.0872,0.6355,0.0,0.2891,LOW,LOW,False,
+20100,TRD003-000393,TRD003,THETAENERGY,False,NONE,NONE,0.1238,0.3192,0.0,0.1772,LOW,LOW,False,
+20101,TRD014-000716,TRD014,NUHEALTH,False,NONE,NONE,0.2846,0.1692,0.0496,0.1915,LOW,LOW,False,
+20102,TRD013-000876,TRD013,LAMBDAINFRA,False,NONE,NONE,0.1765,0.8816,0.0193,0.4271,LOW,LOW,False,
+20103,TRD034-000173,TRD034,ALPHATECH,False,NONE,NONE,0.5888,0.7038,0.0895,0.5349,MEDIUM,LOW,False,
+20104,TRD013-000877,TRD013,LAMBDAINFRA,False,NONE,NONE,0.189,0.8296,0.0193,0.4113,LOW,LOW,False,
+20105,TRD006-000714,TRD006,SIGMAPOWER,False,NONE,NONE,0.2108,0.9546,0.6,0.5862,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20106,TRD036-000091,TRD036,EPSILONBANK,False,NONE,NONE,0.2534,0.738,0.0,0.3966,LOW,LOW,False,
+20107,TRD024-000264,TRD024,UPSILONMEDS,False,NONE,NONE,0.123,0.2868,0.0233,0.1686,LOW,LOW,False,
+20108,TRD038-000867,TRD038,OMICRONMFG,False,NONE,NONE,0.3631,0.6968,0.4381,0.5116,LOW,LOW,False,
+20109,TRD021-000256,TRD021,IOTATELECOM,False,NONE,NONE,0.21,0.1916,0.35,0.2306,LOW,LOW,False,
+20110,TRD049-000266,TRD049,RHOSOFT,False,NONE,NONE,0.1306,0.57,0.0191,0.2841,LOW,LOW,False,
+20111,TRD045-000176,TRD045,ETAMOTORS,False,NONE,NONE,0.1934,0.309,0.0,0.201,LOW,LOW,False,
+20112,TRD043-000500,TRD043,NUHEALTH,False,NONE,NONE,0.1323,0.0558,0.0275,0.0807,LOW,LOW,False,
+20113,TRD043-000501,TRD043,KAPPAFMCG,True,UNUSUAL_SYMBOL,LOW,0.1651,0.6698,0.1941,0.3728,LOW,LOW,False,
+20114,TRD029-000658,TRD029,LAMBDAINFRA,False,NONE,NONE,0.7502,0.8678,0.0193,0.6511,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.0 standard deviations below the trader's historical average."
+20115,TRD013-000878,TRD013,LAMBDAINFRA,False,NONE,NONE,0.3603,0.847,0.0193,0.4868,LOW,LOW,False,
+20116,TRD022-000084,TRD022,XITECH,True,PRE_EVENT_ACTIVITY,HIGH,1.0,0.9988,0.5236,0.9043,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 7.6 standard deviations above the trader's historical average.
+- Quantity was 4.0 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event."
+20117,TRD047-000614,TRD047,THETAENERGY,False,NONE,NONE,0.1259,0.1064,0.0,0.0929,LOW,LOW,False,
+20118,TRD046-001006,TRD046,DELTAENG,False,NONE,NONE,0.2249,0.8114,0.035,0.4215,LOW,LOW,False,
+20119,TRD029-000659,TRD029,LAMBDAINFRA,False,NONE,NONE,0.2926,0.8448,0.0193,0.4588,LOW,LOW,False,
+20120,TRD043-000502,TRD043,NUHEALTH,False,NONE,NONE,0.2016,0.1294,0.0275,0.1379,LOW,LOW,False,
+20121,TRD004-000590,TRD004,ALPHATECH,False,NONE,NONE,0.5257,0.6829,0.0895,0.5013,MEDIUM,LOW,False,
+20122,TRD006-000715,TRD006,SIGMAPOWER,False,NONE,NONE,0.2092,0.9678,0.6,0.5908,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20123,TRD038-000868,TRD038,THETAENERGY,False,NONE,NONE,0.1536,0.3472,0.0,0.2003,LOW,LOW,False,
+20124,TRD028-000828,TRD028,UPSILONMEDS,False,NONE,NONE,0.1014,0.1942,0.0233,0.1229,LOW,LOW,False,
+20125,TRD046-001007,TRD046,BETACORP,False,NONE,NONE,0.25,0.6696,0.0391,0.3756,LOW,LOW,False,
+20126,TRD003-000394,TRD003,THETAENERGY,False,NONE,NONE,0.2065,0.1824,0.0,0.1556,LOW,LOW,False,
+20127,TRD009-000408,TRD009,EPSILONBANK,False,NONE,NONE,0.3066,0.1286,0.0,0.1741,LOW,LOW,False,
+20128,TRD011-000459,TRD011,OMICRONMFG,False,NONE,NONE,0.3,0.6038,0.4381,0.4491,LOW,LOW,False,
+20129,TRD037-000927,TRD037,PIBANK,False,NONE,NONE,0.2104,0.4777,0.0,0.2752,LOW,LOW,False,
+20130,TRD040-000084,TRD040,NUHEALTH,True,UNUSUAL_SYMBOL,LOW,0.1699,0.6536,0.2167,0.3728,LOW,LOW,False,
+20131,TRD033-000884,TRD033,OMICRONMFG,False,NONE,NONE,0.1592,0.6679,0.4381,0.4185,LOW,LOW,False,
+20132,TRD004-000591,TRD004,ALPHATECH,False,NONE,NONE,0.7277,0.8306,0.0895,0.6412,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20133,TRD031-000403,TRD031,TAUAUTO,True,LARGE_TRADE,HIGH,1.0,0.5876,0.0854,0.6521,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 4.2 standard deviations above the trader's historical average.
+- Quantity was 6.4 standard deviations above the trader's historical average."
+20134,TRD040-000085,TRD040,ZETAPHARMA,True,LARGE_TRADE,LOW,0.8875,0.4839,0.0,0.5486,HIGH,LOW,False,
+20135,TRD016-000391,TRD016,TAUAUTO,False,NONE,NONE,0.356,0.0758,0.0,0.1727,LOW,LOW,False,
+20136,TRD002-000695,TRD002,RHOSOFT,False,NONE,NONE,0.2748,0.738,0.0429,0.4137,LOW,LOW,False,
+20137,TRD006-000716,TRD006,EPSILONBANK,False,NONE,NONE,0.1773,0.654,0.0,0.3325,LOW,LOW,False,
+20138,TRD035-000629,TRD035,KAPPAFMCG,False,NONE,NONE,0.1103,0.6716,0.0,0.3128,LOW,LOW,False,
+20139,TRD005-000089,TRD005,EPSILONBANK,True,UNUSUAL_SYMBOL,LOW,0.2382,0.8608,0.1897,0.4775,LOW,LOW,False,
+20140,TRD006-000717,TRD006,GAMMAIND,False,NONE,NONE,0.0518,0.9471,0.0842,0.4164,LOW,LOW,False,
+20141,TRD011-000460,TRD011,OMICRONMFG,False,NONE,NONE,0.3492,0.7528,0.4381,0.5284,LOW,LOW,False,
+20142,TRD033-000885,TRD033,OMICRONMFG,False,NONE,NONE,0.2862,0.7236,0.4381,0.4915,LOW,LOW,False,
+20143,TRD028-000829,TRD028,BETACORP,False,NONE,NONE,0.2248,0.2513,0.0391,0.1983,LOW,LOW,False,
+20144,TRD002-000696,TRD002,TAUAUTO,False,NONE,NONE,0.0925,0.2452,0.0094,0.137,LOW,LOW,False,
+20145,TRD037-000928,TRD037,OMICRONMFG,True,PRE_EVENT_ACTIVITY,MEDIUM,0.9758,0.82,0.4381,0.8059,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.9 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event."
+20146,TRD037-000929,TRD037,ZETAPHARMA,False,NONE,NONE,0.6577,0.8566,0.0,0.6057,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20147,TRD037-000930,TRD037,OMICRONMFG,True,PRE_EVENT_ACTIVITY,MEDIUM,0.9407,0.8618,0.4381,0.8086,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.8 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event."
+20148,TRD004-000592,TRD004,BETACORP,False,NONE,NONE,0.2856,0.2126,0.0391,0.2071,LOW,LOW,False,
+20149,TRD033-000886,TRD033,OMICRONMFG,False,NONE,NONE,0.1768,0.6973,0.4381,0.4373,LOW,LOW,False,
+20150,TRD006-000718,TRD006,GAMMAIND,False,NONE,NONE,0.0947,0.9664,0.0842,0.4413,LOW,LOW,False,
+20151,TRD022-000085,TRD022,BETACORP,False,NONE,NONE,0.1068,0.8311,0.0391,0.383,LOW,LOW,False,
+20152,TRD038-000869,TRD038,GAMMAIND,False,NONE,NONE,0.2151,0.8738,0.0356,0.4427,LOW,LOW,False,
+20153,TRD014-000717,TRD014,TAUAUTO,False,NONE,NONE,0.3266,0.0232,0.0,0.1399,LOW,LOW,False,
+20154,TRD009-000409,TRD009,ETAMOTORS,False,NONE,NONE,0.1839,0.0064,0.0,0.0761,LOW,LOW,False,
+20155,TRD030-000167,TRD030,DELTAENG,True,LARGE_TRADE,HIGH,1.0,0.563,0.0,0.6252,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.2 standard deviations above the trader's historical average.
+- Quantity was 7.6 standard deviations above the trader's historical average."
+20156,TRD043-000503,TRD043,NUHEALTH,False,NONE,NONE,0.2297,0.2076,0.0275,0.1804,LOW,LOW,False,
+20157,TRD033-000887,TRD033,ETAMOTORS,False,NONE,NONE,0.5063,0.3755,0.0,0.3527,MEDIUM,LOW,False,
+20158,TRD043-000504,TRD043,THETAENERGY,False,NONE,NONE,0.1598,0.4585,0.0,0.2473,LOW,LOW,False,
+20159,TRD029-000660,TRD029,DELTAENG,False,NONE,NONE,0.2448,0.6113,0.1955,0.3815,LOW,LOW,False,
+20160,TRD037-000931,TRD037,OMICRONMFG,True,PRE_EVENT_ACTIVITY,LOW,0.6272,0.8789,0.4381,0.6901,MEDIUM,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred shortly before a synthetic market event."
+20161,TRD009-000410,TRD009,THETAENERGY,False,NONE,NONE,0.1641,0.1286,0.0,0.1171,LOW,LOW,False,
+20162,TRD013-000879,TRD013,GAMMAIND,False,NONE,NONE,0.0816,0.7968,0.0356,0.3585,LOW,LOW,False,
+20163,TRD044-000850,TRD044,TAUAUTO,False,NONE,NONE,0.2666,0.0336,0.0,0.12,LOW,LOW,False,
+20164,TRD044-000851,TRD044,TAUAUTO,False,NONE,NONE,0.04,0.0367,0.0,0.0307,LOW,LOW,False,
+20165,TRD029-000661,TRD029,RHOSOFT,False,NONE,NONE,0.5924,0.6144,0.0191,0.4865,MEDIUM,LOW,False,
+20166,TRD037-000932,TRD037,OMICRONMFG,False,NONE,NONE,0.1917,0.9022,0.4381,0.5252,LOW,LOW,False,
+20167,TRD002-000697,TRD002,ALPHATECH,False,NONE,NONE,0.319,0.8176,0.0895,0.4726,LOW,LOW,False,
+20168,TRD004-000593,TRD004,THETAENERGY,False,NONE,NONE,0.3878,0.3714,0.0,0.3037,LOW,LOW,False,
+20169,TRD038-000870,TRD038,XITECH,False,NONE,NONE,0.4024,0.9059,0.4649,0.6163,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred shortly before a synthetic market event."
+20170,TRD035-000630,TRD035,MUFINANCE,False,NONE,NONE,0.2358,0.3846,0.0057,0.2493,LOW,LOW,False,
+20171,TRD022-000086,TRD022,XITECH,True,PRE_EVENT_ACTIVITY,HIGH,1.0,0.9988,0.5236,0.9043,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.7 standard deviations above the trader's historical average.
+- Quantity was 3.2 standard deviations above the trader's historical average.
+- The trade occurred shortly before a synthetic market event."
+20172,TRD008-000085,TRD008,KAPPAFMCG,False,NONE,NONE,0.267,0.9738,0.0,0.4963,LOW,LOW,False,
+20173,TRD014-000718,TRD014,TAUAUTO,False,NONE,NONE,0.0708,0.0132,0.0,0.0336,LOW,LOW,False,
+20174,TRD042-000343,TRD042,SIGMAPOWER,False,NONE,NONE,0.5295,0.993,0.25,0.659,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average."
+20175,TRD043-000505,TRD043,THETAENERGY,False,NONE,NONE,0.3128,0.1978,0.0,0.2042,LOW,LOW,False,
+20176,TRD013-000880,TRD013,LAMBDAINFRA,False,NONE,NONE,0.1999,0.7381,0.0193,0.3791,LOW,LOW,False,
+20177,TRD002-000698,TRD002,RHOSOFT,False,NONE,NONE,0.2388,0.5964,0.0191,0.3379,LOW,LOW,False,
+20178,TRD014-000719,TRD014,ZETAPHARMA,False,NONE,NONE,0.1512,0.5138,0.0,0.266,LOW,LOW,False,
+20179,TRD008-000086,TRD008,KAPPAFMCG,True,FREQUENCY_SPIKE,LOW,0.0747,0.9342,0.0,0.4036,LOW,LOW,False,
+20180,TRD042-000344,TRD042,KAPPAFMCG,False,NONE,NONE,0.4051,0.5154,0.0,0.3682,LOW,LOW,False,
+20181,TRD046-001008,TRD046,THETAENERGY,False,NONE,NONE,0.5434,0.2676,0.0271,0.3298,MEDIUM,LOW,False,
+20182,TRD008-000087,TRD008,KAPPAFMCG,True,FREQUENCY_SPIKE,LOW,0.1269,0.9172,0.0,0.4177,LOW,LOW,False,
+20183,TRD014-000720,TRD014,NUHEALTH,True,LARGE_QUANTITY,HIGH,1.0,0.3748,0.0496,0.5598,HIGH,LOW,False,
+20184,TRD008-000088,TRD008,BETACORP,True,FREQUENCY_SPIKE,LOW,0.1526,0.8535,0.0391,0.4103,LOW,LOW,False,
+20185,TRD011-000461,TRD011,EPSILONBANK,False,NONE,NONE,0.1108,0.5007,0.0,0.2446,LOW,LOW,False,
+20186,TRD030-000168,TRD030,NUHEALTH,False,NONE,NONE,0.1794,0.3936,0.0275,0.2347,LOW,LOW,False,
+20187,TRD044-000852,TRD044,NUHEALTH,False,NONE,NONE,0.2841,0.3746,0.1748,0.2984,LOW,LOW,False,
+20188,TRD033-000888,TRD033,ETAMOTORS,False,NONE,NONE,0.0908,0.4003,0.0,0.1964,LOW,LOW,False,
+20189,TRD004-000594,TRD004,BETACORP,False,NONE,NONE,0.1904,0.372,0.0391,0.2328,LOW,LOW,False,
+20190,TRD011-000462,TRD011,EPSILONBANK,False,NONE,NONE,0.1408,0.5788,0.0,0.2878,LOW,LOW,False,
+20191,TRD014-000721,TRD014,ZETAPHARMA,False,NONE,NONE,0.1916,0.7478,0.0,0.3757,LOW,LOW,False,
+20192,TRD001-000345,TRD001,DELTAENG,False,NONE,NONE,0.2093,0.7941,0.0113,0.4036,LOW,LOW,False,
+20193,TRD008-000089,TRD008,BETACORP,True,FREQUENCY_SPIKE,LOW,0.1896,0.971,0.0391,0.4721,LOW,LOW,False,
+20194,TRD008-000090,TRD008,BETACORP,True,FREQUENCY_SPIKE,LOW,0.1022,0.9642,0.0391,0.4344,LOW,LOW,False,
+20195,TRD008-000091,TRD008,KAPPAFMCG,True,FREQUENCY_SPIKE,LOW,0.067,0.9904,0.0,0.423,LOW,LOW,False,
+20196,TRD008-000092,TRD008,KAPPAFMCG,True,FREQUENCY_SPIKE,LOW,0.3084,0.9738,0.0,0.5129,LOW,LOW,False,
+20197,TRD006-000719,TRD006,KAPPAFMCG,False,NONE,NONE,0.0757,0.6968,0.0,0.309,LOW,LOW,False,
+20198,TRD014-000722,TRD014,ZETAPHARMA,False,NONE,NONE,0.2986,0.8143,0.0,0.4452,LOW,LOW,False,
+20199,TRD032-000306,TRD032,RHOSOFT,False,NONE,NONE,0.1389,0.5532,0.0191,0.2807,LOW,LOW,False,
+20200,TRD044-000853,TRD044,XITECH,False,NONE,NONE,0.121,0.943,0.1149,0.4486,LOW,LOW,False,
+20201,TRD025-000207,TRD025,ETAMOTORS,False,NONE,NONE,0.0641,0.1636,0.0009,0.0912,LOW,LOW,False,
+20202,TRD044-000854,TRD044,THETAENERGY,False,NONE,NONE,0.0488,0.6364,0.0115,0.2764,LOW,LOW,False,
+20203,TRD033-000889,TRD033,OMICRONMFG,False,NONE,NONE,0.162,0.7018,0.4381,0.4332,LOW,LOW,False,
+20204,TRD006-000720,TRD006,GAMMAIND,False,NONE,NONE,0.1834,0.9526,0.0842,0.4713,LOW,LOW,False,
+20205,TRD025-000208,TRD025,TAUAUTO,False,NONE,NONE,0.1672,0.0336,0.35,0.1503,LOW,LOW,False,
+20206,TRD006-000721,TRD006,SIGMAPOWER,True,LARGE_QUANTITY,MEDIUM,0.8852,0.9968,0.25,0.8028,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.5 standard deviations above the trader's historical average.
+- Market volume was significantly above its historical average."
+20207,TRD004-000595,TRD004,THETAENERGY,False,NONE,NONE,0.1718,0.2578,0.0,0.1718,LOW,LOW,False,
+20208,TRD023-000098,TRD023,THETAENERGY,False,NONE,NONE,0.1171,0.8404,0.0,0.383,LOW,LOW,False,
+20209,TRD004-000596,TRD004,ALPHATECH,False,NONE,NONE,0.6042,0.8894,0.0895,0.6153,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20210,TRD019-000749,TRD019,LAMBDAINFRA,True,LARGE_QUANTITY,HIGH,1.0,0.7992,0.0193,0.7235,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.2 standard deviations above the trader's historical average."
+20211,TRD019-000750,TRD019,LAMBDAINFRA,False,NONE,NONE,0.334,0.6372,0.0193,0.3923,LOW,LOW,False,
+20212,TRD042-000345,TRD042,SIGMAPOWER,False,NONE,NONE,0.4564,0.9782,0.25,0.6238,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average."
+20213,TRD044-000855,TRD044,MUFINANCE,False,NONE,NONE,0.4072,0.9305,0.0211,0.5393,LOW,LOW,False,
+20214,TRD035-000631,TRD035,KAPPAFMCG,False,NONE,NONE,0.1051,0.9484,0.0976,0.4409,LOW,LOW,False,
+20215,TRD042-000346,TRD042,SIGMAPOWER,False,NONE,NONE,0.4584,0.9796,0.25,0.6252,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average."
+20216,TRD002-000699,TRD002,RHOSOFT,False,NONE,NONE,0.2611,0.4944,0.0191,0.306,LOW,LOW,False,
+20217,TRD019-000751,TRD019,THETAENERGY,False,NONE,NONE,0.0558,0.1708,0.0,0.0906,LOW,LOW,False,
+20218,TRD017-000253,TRD017,GAMMAIND,False,NONE,NONE,0.1515,0.9314,0.0581,0.4447,LOW,LOW,False,
+20219,TRD038-000871,TRD038,TAUAUTO,False,NONE,NONE,0.2083,0.0854,0.35,0.1875,LOW,LOW,False,
+20220,TRD038-000872,TRD038,OMICRONMFG,False,NONE,NONE,0.3416,0.8175,0.0881,0.4813,LOW,LOW,False,
+20221,TRD003-000395,TRD003,SIGMAPOWER,True,UNUSUAL_TIME,MEDIUM,0.3894,0.9906,0.3523,0.6225,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred 61 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20222,TRD004-000597,TRD004,BETACORP,False,NONE,NONE,0.2197,0.5392,0.3891,0.3813,LOW,LOW,False,
+20223,TRD014-000723,TRD014,ZETAPHARMA,False,NONE,NONE,0.1803,0.6687,0.0,0.3396,LOW,LOW,False,
+20224,TRD038-000873,TRD038,THETAENERGY,False,NONE,NONE,0.1708,0.278,0.0,0.1795,LOW,LOW,False,
+20225,TRD033-000890,TRD033,UPSILONMEDS,False,NONE,NONE,0.2799,0.2895,0.4065,0.3091,LOW,LOW,False,
+20226,TRD009-000411,TRD009,ETAMOTORS,False,NONE,NONE,0.1839,0.036,0.0,0.0879,LOW,LOW,False,
+20227,TRD038-000874,TRD038,OMICRONMFG,False,NONE,NONE,0.3137,0.896,0.0881,0.5015,LOW,LOW,False,
+20228,TRD004-000598,TRD004,THETAENERGY,False,NONE,NONE,0.1247,0.6441,0.0,0.3075,LOW,LOW,False,
+20229,TRD016-000392,TRD016,TAUAUTO,False,NONE,NONE,0.0854,0.0838,0.35,0.1377,LOW,LOW,False,
+20230,TRD031-000404,TRD031,XITECH,False,NONE,NONE,0.5514,0.9678,0.1456,0.6368,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20231,TRD007-000121,TRD007,THETAENERGY,True,LARGE_TRADE,HIGH,1.0,0.3831,0.0231,0.5579,HIGH,LOW,False,
+20232,TRD028-000830,TRD028,ALPHATECH,False,NONE,NONE,0.3884,0.7156,0.0895,0.4595,LOW,LOW,False,
+20233,TRD014-000724,TRD014,XITECH,False,NONE,NONE,0.2136,0.9444,0.1149,0.4862,LOW,LOW,False,
+20234,TRD019-000752,TRD019,ALPHATECH,False,NONE,NONE,0.3412,0.775,0.0895,0.4644,LOW,LOW,False,
+20235,TRD014-000725,TRD014,XITECH,False,NONE,NONE,0.0565,0.9538,0.1149,0.4271,LOW,LOW,False,
+20236,TRD016-000393,TRD016,ALPHATECH,False,NONE,NONE,0.202,0.76,0.0895,0.4027,LOW,LOW,False,
+20237,TRD002-000700,TRD002,ALPHATECH,False,NONE,NONE,0.6068,0.8292,0.0895,0.5923,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20238,TRD002-000701,TRD002,RHOSOFT,False,NONE,NONE,0.2241,0.524,0.0191,0.3031,LOW,LOW,False,
+20239,TRD004-000599,TRD004,ALPHATECH,False,NONE,NONE,0.5344,0.8959,0.0895,0.59,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20240,TRD013-000881,TRD013,NUHEALTH,True,UNUSUAL_TIME,LOW,0.2826,0.9147,0.1583,0.5106,LOW,LOW,False,
+20241,TRD029-000662,TRD029,LAMBDAINFRA,False,NONE,NONE,0.1465,0.9602,0.1011,0.4629,LOW,LOW,False,
+20242,TRD009-000412,TRD009,NUHEALTH,False,NONE,NONE,0.5057,0.3619,0.0417,0.3554,MEDIUM,LOW,False,
+20243,TRD011-000463,TRD011,EPSILONBANK,False,NONE,NONE,0.1247,0.5266,0.0,0.2605,LOW,LOW,False,
+20244,TRD019-000753,TRD019,NUHEALTH,False,NONE,NONE,0.233,0.6792,0.1098,0.3868,LOW,LOW,False,
+20245,TRD033-000891,TRD033,ETAMOTORS,False,NONE,NONE,0.1231,0.0587,0.0,0.0727,LOW,LOW,False,
+20246,TRD011-000464,TRD011,OMICRONMFG,False,NONE,NONE,0.1289,0.7906,0.0881,0.3854,LOW,LOW,False,
+20247,TRD030-000169,TRD030,DELTAENG,False,NONE,NONE,0.2772,0.8584,0.0556,0.4654,LOW,LOW,False,
+20248,TRD046-001009,TRD046,THETAENERGY,False,NONE,NONE,0.3889,0.474,0.0271,0.3506,LOW,LOW,False,
+20249,TRD002-000702,TRD002,ALPHATECH,False,NONE,NONE,0.2547,0.8086,0.0895,0.4433,LOW,LOW,False,
+20250,TRD032-000307,TRD032,GAMMAIND,False,NONE,NONE,0.2845,0.9023,0.0356,0.4818,LOW,LOW,False,
+20251,TRD014-000726,TRD014,ZETAPHARMA,True,LARGE_TRADE,HIGH,1.0,0.734,0.0,0.6936,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.1 standard deviations above the trader's historical average.
+- Quantity was 6.3 standard deviations above the trader's historical average."
+20252,TRD046-001010,TRD046,BETACORP,False,NONE,NONE,0.1974,0.2507,0.3891,0.2571,LOW,LOW,False,
+20253,TRD002-000703,TRD002,TAUAUTO,False,NONE,NONE,0.2733,0.2382,0.35,0.2746,LOW,LOW,False,
+20254,TRD046-001011,TRD046,UPSILONMEDS,False,NONE,NONE,0.1303,0.6804,0.3818,0.4006,LOW,LOW,False,
+20255,TRD033-000892,TRD033,EPSILONBANK,False,NONE,NONE,0.3878,0.3628,0.0,0.3002,LOW,LOW,False,
+20256,TRD039-000166,TRD039,ETAMOTORS,True,UNUSUAL_TIME,LOW,0.2788,0.9594,0.2,0.5353,LOW,LOW,False,
+20257,TRD002-000704,TRD002,ALPHATECH,False,NONE,NONE,0.4561,0.9393,0.0895,0.5761,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20258,TRD011-000465,TRD011,EPSILONBANK,False,NONE,NONE,0.1089,0.7909,0.021,0.3641,LOW,LOW,False,
+20259,TRD002-000705,TRD002,RHOSOFT,True,LARGE_QUANTITY,LOW,0.9388,0.8554,0.0191,0.7215,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.8 standard deviations above the trader's historical average."
+20260,TRD014-000727,TRD014,TAUAUTO,False,NONE,NONE,0.2591,0.4404,0.35,0.3498,LOW,LOW,False,
+20261,TRD046-001012,TRD046,UPSILONMEDS,False,NONE,NONE,0.0908,0.8416,0.397,0.4524,LOW,LOW,False,
+20262,TRD024-000265,TRD024,ZETAPHARMA,True,UNUSUAL_TIME,LOW,0.1978,0.9782,0.1279,0.496,LOW,LOW,False,
+20263,TRD010-000305,TRD010,GAMMAIND,True,UNUSUAL_TIME,LOW,0.1206,0.9921,0.1076,0.4666,LOW,LOW,False,
+20264,TRD041-000424,TRD041,OMICRONMFG,False,NONE,NONE,0.1711,0.2603,0.0,0.1726,LOW,LOW,False,
+20265,TRD018-000125,TRD018,UPSILONMEDS,True,MULTI_FEATURE_ANOMALY,HIGH,0.8387,0.9998,0.9306,0.9215,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.4 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 83 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20266,TRD029-000663,TRD029,RHOSOFT,True,UNUSUAL_TIME,LOW,0.0946,0.9072,0.1097,0.4226,LOW,LOW,False,
+20267,TRD018-000126,TRD018,UPSILONMEDS,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9997,0.9263,0.9851,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 5.0 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 80 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20268,TRD018-000127,TRD018,UPSILONMEDS,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9999,0.9259,0.9851,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.6 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 80 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20269,TRD026-000396,TRD026,DELTAENG,False,NONE,NONE,0.2956,0.812,0.2503,0.4931,LOW,LOW,False,
+20270,TRD018-000128,TRD018,UPSILONMEDS,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9998,0.9203,0.984,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.8 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 77 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20271,TRD019-000754,TRD019,GAMMAIND,True,UNUSUAL_TIME,LOW,0.2321,0.9888,0.1105,0.5105,LOW,LOW,False,
+20272,TRD018-000129,TRD018,UPSILONMEDS,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9999,0.9177,0.9835,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.1 standard deviations above the trader's historical average.
+- Trading frequency was significantly higher than normal (5 trades in the last hour).
+- The symbol is rarely traded by this trader.
+- The trade occurred 75 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20273,TRD037-000933,TRD037,ZETAPHARMA,True,LARGE_TRADE,HIGH,1.0,0.9732,0.0,0.7893,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.4 standard deviations above the trader's historical average.
+- Quantity was 7.3 standard deviations above the trader's historical average."
+20274,TRD037-000934,TRD037,NUHEALTH,False,NONE,NONE,0.2002,0.287,0.0296,0.2008,LOW,LOW,False,
+20275,TRD034-000174,TRD034,BETACORP,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9977,0.9214,0.9834,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.7 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 83 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20276,TRD034-000175,TRD034,BETACORP,True,MULTI_FEATURE_ANOMALY,HIGH,0.9492,0.9974,0.9178,0.9622,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.8 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 81 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20277,TRD034-000176,TRD034,BETACORP,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9976,0.9167,0.9824,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.3 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 80 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20278,TRD034-000177,TRD034,BETACORP,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9977,0.9146,0.982,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.9 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 79 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20279,TRD012-000385,TRD012,PIBANK,False,NONE,NONE,0.2108,0.6792,0.0,0.356,LOW,LOW,False,
+20280,TRD047-000615,TRD047,BETACORP,False,NONE,NONE,0.3144,0.9342,0.5884,0.6171,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20281,TRD028-000831,TRD028,UPSILONMEDS,False,NONE,NONE,0.1068,0.9786,0.6108,0.5563,LOW,LOW,False,
+20282,TRD034-000178,TRD034,BETACORP,True,MULTI_FEATURE_ANOMALY,HIGH,1.0,0.9986,0.9077,0.981,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.0 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The trade occurred 75 minutes outside the trader's preferred window.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20283,TRD015-000412,TRD015,RHOSOFT,False,NONE,NONE,0.2016,0.7648,0.1976,0.4261,LOW,LOW,False,
+20284,TRD041-000425,TRD041,MUFINANCE,True,BEHAVIOR_CHANGE,HIGH,1.0,0.5092,0.0,0.6037,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 5.1 standard deviations above the trader's historical average.
+- Quantity was 3.7 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20285,TRD041-000426,TRD041,BETACORP,False,NONE,NONE,0.2882,0.9296,0.5884,0.6048,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20286,TRD044-000856,TRD044,TAUAUTO,False,NONE,NONE,0.147,0.9796,0.6,0.5706,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20287,TRD037-000935,TRD037,ZETAPHARMA,False,NONE,NONE,0.5324,0.8281,0.0,0.5442,MEDIUM,LOW,False,
+20288,TRD037-000936,TRD037,ZETAPHARMA,False,NONE,NONE,0.5488,0.8576,0.0,0.5626,MEDIUM,LOW,False,
+20289,TRD013-000882,TRD013,BETACORP,False,NONE,NONE,0.2787,0.9575,0.5884,0.6122,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20290,TRD024-000266,TRD024,ZETAPHARMA,False,NONE,NONE,0.311,0.893,0.0492,0.4914,LOW,LOW,False,
+20291,TRD044-000857,TRD044,TAUAUTO,False,NONE,NONE,0.1687,0.9735,0.6,0.5769,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20292,TRD031-000405,TRD031,NUHEALTH,False,NONE,NONE,0.147,0.1314,0.0515,0.1216,LOW,LOW,False,
+20293,TRD043-000506,TRD043,THETAENERGY,False,NONE,NONE,0.2984,0.1125,0.0,0.1644,LOW,LOW,False,
+20294,TRD012-000386,TRD012,EPSILONBANK,False,NONE,NONE,0.3458,0.0758,0.0,0.1686,LOW,LOW,False,
+20295,TRD013-000883,TRD013,LAMBDAINFRA,False,NONE,NONE,0.1826,0.7336,0.023,0.3711,LOW,LOW,False,
+20296,TRD044-000858,TRD044,THETAENERGY,False,NONE,NONE,0.0475,0.3688,0.0115,0.1688,LOW,LOW,False,
+20297,TRD001-000346,TRD001,UPSILONMEDS,False,NONE,NONE,0.2228,0.9963,0.6214,0.6119,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20298,TRD047-000616,TRD047,GAMMAIND,True,LARGE_TRADE,HIGH,1.0,0.9689,0.0,0.7876,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 5.1 standard deviations above the trader's historical average.
+- Quantity was 13.0 standard deviations above the trader's historical average."
+20299,TRD001-000347,TRD001,UPSILONMEDS,False,NONE,NONE,0.2607,0.9843,0.6132,0.6206,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20300,TRD047-000617,TRD047,GAMMAIND,False,NONE,NONE,0.1046,0.8164,0.0,0.3684,LOW,LOW,False,
+20301,TRD031-000406,TRD031,EPSILONBANK,False,NONE,NONE,0.2973,0.2331,0.0,0.2122,LOW,LOW,False,
+20302,TRD039-000167,TRD039,BETACORP,True,LARGE_QUANTITY,HIGH,1.0,0.968,0.5884,0.9049,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 5.8 standard deviations above the trader's historical average.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20303,TRD013-000884,TRD013,ZETAPHARMA,False,NONE,NONE,0.5284,0.7035,0.0,0.4928,MEDIUM,LOW,False,
+20304,TRD041-000427,TRD041,GAMMAIND,False,NONE,NONE,0.2456,0.8018,0.0,0.419,LOW,LOW,False,
+20305,TRD024-000267,TRD024,UPSILONMEDS,False,NONE,NONE,0.3342,0.9908,0.6,0.65,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20306,TRD031-000407,TRD031,XITECH,False,NONE,NONE,0.4037,0.2336,0.0,0.2549,LOW,LOW,False,
+20307,TRD037-000937,TRD037,NUHEALTH,False,NONE,NONE,0.3363,0.263,0.0296,0.2457,LOW,LOW,False,
+20308,TRD037-000938,TRD037,NUHEALTH,False,NONE,NONE,0.0971,0.3118,0.0296,0.1695,LOW,LOW,False,
+20309,TRD041-000428,TRD041,GAMMAIND,True,BEHAVIOR_CHANGE,HIGH,1.0,0.867,0.0,0.7468,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.6 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20310,TRD047-000618,TRD047,GAMMAIND,False,NONE,NONE,0.0707,0.861,0.0,0.3727,LOW,LOW,False,
+20311,TRD031-000408,TRD031,XITECH,False,NONE,NONE,0.3402,0.2894,0.0,0.2518,LOW,LOW,False,
+20312,TRD041-000429,TRD041,OMICRONMFG,False,NONE,NONE,0.1566,0.3026,0.0,0.1837,LOW,LOW,False,
+20313,TRD016-000394,TRD016,NUHEALTH,False,NONE,NONE,0.2172,0.0921,0.0296,0.1296,LOW,LOW,False,
+20314,TRD029-000664,TRD029,ETAMOTORS,False,NONE,NONE,0.1088,0.137,0.0,0.0984,LOW,LOW,False,
+20315,TRD005-000090,TRD005,THETAENERGY,True,LARGE_TRADE,HIGH,1.0,0.9956,0.0,0.7982,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.5 standard deviations above the trader's historical average.
+- Quantity was 9.0 standard deviations above the trader's historical average."
+20316,TRD046-001013,TRD046,UPSILONMEDS,False,NONE,NONE,0.1559,0.991,0.6,0.5788,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20317,TRD046-001014,TRD046,KAPPAFMCG,False,NONE,NONE,0.3465,0.7617,0.1951,0.4823,LOW,LOW,False,
+20318,TRD017-000254,TRD017,IOTATELECOM,True,LARGE_QUANTITY,HIGH,1.0,0.724,0.0509,0.6998,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.6 standard deviations above the trader's historical average."
+20319,TRD028-000832,TRD028,BETACORP,False,NONE,NONE,0.2747,0.9432,0.5884,0.6048,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20320,TRD046-001015,TRD046,BETACORP,False,NONE,NONE,0.2482,0.9616,0.5884,0.6016,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20321,TRD049-000267,TRD049,LAMBDAINFRA,True,LARGE_QUANTITY,HIGH,1.0,0.7406,0.023,0.7009,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.2 standard deviations above the trader's historical average."
+20322,TRD016-000395,TRD016,ALPHATECH,False,NONE,NONE,0.4608,0.1755,0.0,0.2545,LOW,LOW,False,
+20323,TRD028-000833,TRD028,BETACORP,False,NONE,NONE,0.2244,0.9313,0.5884,0.58,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20324,TRD028-000834,TRD028,MUFINANCE,False,NONE,NONE,0.6067,0.8457,0.1964,0.6202,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The symbol is rarely traded by this trader."
+20325,TRD014-000728,TRD014,ZETAPHARMA,False,NONE,NONE,0.4667,0.837,0.022,0.5259,LOW,LOW,False,
+20326,TRD016-000396,TRD016,ZETAPHARMA,True,LARGE_TRADE,HIGH,1.0,0.8172,0.0161,0.7301,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.7 standard deviations above the trader's historical average.
+- Quantity was 5.8 standard deviations above the trader's historical average."
+20327,TRD029-000665,TRD029,LAMBDAINFRA,False,NONE,NONE,0.1424,0.7741,0.023,0.3712,LOW,LOW,False,
+20328,TRD036-000092,TRD036,LAMBDAINFRA,True,UNUSUAL_SYMBOL,LOW,0.4032,0.9326,0.213,0.5769,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The symbol is rarely traded by this trader."
+20329,TRD013-000885,TRD013,LAMBDAINFRA,False,NONE,NONE,0.1951,0.7904,0.023,0.3988,LOW,LOW,False,
+20330,TRD015-000413,TRD015,EPSILONBANK,True,BEHAVIOR_CHANGE,HIGH,1.0,0.7396,0.0,0.6958,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 6.0 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20331,TRD033-000893,TRD033,MUFINANCE,False,NONE,NONE,0.5377,0.9598,0.0423,0.6075,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20332,TRD047-000619,TRD047,GAMMAIND,False,NONE,NONE,0.1378,0.82,0.0,0.3831,LOW,LOW,False,
+20333,TRD014-000729,TRD014,TAUAUTO,False,NONE,NONE,0.0749,0.9924,0.6058,0.5481,LOW,LOW,False,
+20334,TRD018-000130,TRD018,XITECH,False,NONE,NONE,0.3839,0.4648,0.0,0.3395,LOW,LOW,False,
+20335,TRD046-001016,TRD046,UPSILONMEDS,False,NONE,NONE,0.1422,0.9929,0.6,0.574,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20336,TRD015-000414,TRD015,PIBANK,False,NONE,NONE,0.5154,0.6496,0.0,0.466,MEDIUM,LOW,False,
+20337,TRD029-000666,TRD029,RHOSOFT,False,NONE,NONE,0.3434,0.5313,0.0,0.3499,LOW,LOW,False,
+20338,TRD003-000396,TRD003,THETAENERGY,False,NONE,NONE,0.081,0.3516,0.0,0.173,LOW,LOW,False,
+20339,TRD015-000415,TRD015,PIBANK,True,BEHAVIOR_CHANGE,HIGH,1.0,0.8133,0.0,0.7253,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 5.0 standard deviations above the trader's historical average.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20340,TRD028-000835,TRD028,NUHEALTH,False,NONE,NONE,0.1826,0.2812,0.0296,0.1915,LOW,LOW,False,
+20341,TRD035-000632,TRD035,TAUAUTO,True,UNUSUAL_SYMBOL,HIGH,0.1744,0.9888,0.7984,0.625,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The symbol is rarely traded by this trader.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20342,TRD005-000091,TRD005,THETAENERGY,False,NONE,NONE,0.3921,0.979,0.0,0.5485,LOW,LOW,False,
+20343,TRD022-000087,TRD022,KAPPAFMCG,False,NONE,NONE,0.1082,0.7633,0.0,0.3486,LOW,LOW,False,
+20344,TRD024-000268,TRD024,IOTATELECOM,False,NONE,NONE,0.2856,0.7392,0.0509,0.4201,LOW,LOW,False,
+20345,TRD039-000168,TRD039,KAPPAFMCG,False,NONE,NONE,0.1416,0.4192,0.0902,0.2423,LOW,LOW,False,
+20346,TRD034-000179,TRD034,OMICRONMFG,False,NONE,NONE,0.2689,0.6133,0.0,0.3529,LOW,LOW,False,
+20347,TRD032-000308,TRD032,SIGMAPOWER,False,NONE,NONE,0.2384,0.6556,0.0371,0.365,LOW,LOW,False,
+20348,TRD022-000088,TRD022,BETACORP,True,LARGE_QUANTITY,HIGH,0.9578,0.9985,0.5884,0.9002,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.8 standard deviations above the trader's historical average.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20349,TRD001-000348,TRD001,DELTAENG,False,NONE,NONE,0.1602,0.6299,0.0,0.316,LOW,LOW,False,
+20350,TRD033-000894,TRD033,MUFINANCE,False,NONE,NONE,0.4725,0.8896,0.0,0.5448,LOW,LOW,False,
+20351,TRD037-000939,TRD037,PIBANK,False,NONE,NONE,0.2724,0.673,0.0,0.3782,LOW,LOW,False,
+20352,TRD028-000836,TRD028,BETACORP,False,NONE,NONE,0.2174,0.954,0.5884,0.5863,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20353,TRD046-001017,TRD046,THETAENERGY,True,LARGE_TRADE,LOW,0.8198,0.908,0.0271,0.6965,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 3.3 standard deviations above the trader's historical average."
+20354,TRD037-000940,TRD037,OMICRONMFG,False,NONE,NONE,0.1693,0.4368,0.0,0.2424,LOW,LOW,False,
+20355,TRD050-000079,TRD050,XITECH,False,NONE,NONE,0.4894,0.8099,0.0,0.5197,LOW,LOW,False,
+20356,TRD038-000875,TRD038,XITECH,False,NONE,NONE,0.3556,0.4158,0.0,0.3086,LOW,LOW,False,
+20357,TRD033-000895,TRD033,LAMBDAINFRA,False,NONE,NONE,0.185,0.8446,0.0629,0.4244,LOW,LOW,False,
+20358,TRD017-000255,TRD017,XITECH,False,NONE,NONE,0.1838,0.158,0.0,0.1367,LOW,LOW,False,
+20359,TRD044-000859,TRD044,TAUAUTO,False,NONE,NONE,0.0708,0.9818,0.6,0.5411,LOW,LOW,False,
+20360,TRD029-000667,TRD029,LAMBDAINFRA,False,NONE,NONE,0.1504,0.7847,0.023,0.3786,LOW,LOW,False,
+20361,TRD001-000349,TRD001,LAMBDAINFRA,False,NONE,NONE,0.249,0.7543,0.023,0.4059,LOW,LOW,False,
+20362,TRD021-000257,TRD021,IOTATELECOM,False,NONE,NONE,0.2194,0.6133,0.0509,0.3433,LOW,LOW,False,
+20363,TRD033-000896,TRD033,OMICRONMFG,False,NONE,NONE,0.1578,0.412,0.0,0.2279,LOW,LOW,False,
+20364,TRD034-000180,TRD034,ALPHATECH,False,NONE,NONE,0.7626,0.5792,0.0,0.5367,HIGH,LOW,False,
+20365,TRD034-000181,TRD034,OMICRONMFG,True,LARGE_QUANTITY,MEDIUM,0.9701,0.5926,0.0,0.6251,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.9 standard deviations above the trader's historical average.
+- Trading frequency was significantly higher than normal (3 trades in the last hour).
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20366,TRD038-000876,TRD038,GAMMAIND,False,NONE,NONE,0.1928,0.9073,0.0,0.44,LOW,LOW,False,
+20367,TRD045-000177,TRD045,ETAMOTORS,False,NONE,NONE,0.4406,0.4789,0.0,0.3678,LOW,LOW,False,
+20368,TRD049-000268,TRD049,RHOSOFT,False,NONE,NONE,0.1462,0.5911,0.0,0.2949,LOW,LOW,False,
+20369,TRD028-000837,TRD028,BETACORP,False,NONE,NONE,0.2047,0.9628,0.5884,0.5847,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20370,TRD046-001018,TRD046,BETACORP,False,NONE,NONE,0.2157,0.9534,0.5884,0.5853,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20371,TRD001-000350,TRD001,ZETAPHARMA,True,LARGE_TRADE,HIGH,1.0,0.5631,0.1294,0.6511,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 5.0 standard deviations above the trader's historical average."
+20372,TRD043-000507,TRD043,TAUAUTO,False,NONE,NONE,0.401,0.9772,0.6047,0.6722,LOW,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20373,TRD028-000838,TRD028,BETACORP,False,NONE,NONE,0.2288,0.969,0.5884,0.5968,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20374,TRD046-001019,TRD046,SIGMAPOWER,False,NONE,NONE,0.3252,0.5705,0.0207,0.3624,LOW,LOW,False,
+20375,TRD018-000131,TRD018,EPSILONBANK,False,NONE,NONE,0.1984,0.7273,0.0,0.3703,LOW,LOW,False,
+20376,TRD038-000877,TRD038,THETAENERGY,False,NONE,NONE,0.4575,0.6887,0.0,0.4585,LOW,LOW,False,
+20377,TRD021-000258,TRD021,IOTATELECOM,False,NONE,NONE,0.2897,0.536,0.0509,0.3405,LOW,LOW,False,
+20378,TRD043-000508,TRD043,THETAENERGY,False,NONE,NONE,0.2313,0.0383,0.0,0.1078,LOW,LOW,False,
+20379,TRD043-000509,TRD043,TAUAUTO,False,NONE,NONE,0.1946,0.9728,0.6047,0.5879,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20380,TRD013-000886,TRD013,GAMMAIND,False,NONE,NONE,0.2816,0.8635,0.0,0.4581,LOW,LOW,False,
+20381,TRD040-000086,TRD040,EPSILONBANK,False,NONE,NONE,0.1427,0.734,0.0,0.3507,LOW,LOW,False,
+20382,TRD038-000878,TRD038,TAUAUTO,False,NONE,NONE,0.2778,0.9839,0.6,0.6247,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20383,TRD047-000620,TRD047,GAMMAIND,False,NONE,NONE,0.1466,0.7736,0.0,0.3681,LOW,LOW,False,
+20384,TRD018-000132,TRD018,XITECH,False,NONE,NONE,0.3979,0.3826,0.0,0.3122,LOW,LOW,False,
+20385,TRD010-000306,TRD010,KAPPAFMCG,False,NONE,NONE,0.197,0.2812,0.0818,0.2076,LOW,LOW,False,
+20386,TRD031-000409,TRD031,NUHEALTH,False,NONE,NONE,0.3131,0.1542,0.0515,0.1972,LOW,LOW,False,
+20387,TRD009-000413,TRD009,THETAENERGY,False,NONE,NONE,0.1825,0.1045,0.0,0.1148,LOW,LOW,False,
+20388,TRD032-000309,TRD032,SIGMAPOWER,False,NONE,NONE,0.2437,0.1069,0.0207,0.1444,LOW,LOW,False,
+20389,TRD033-000897,TRD033,GAMMAIND,True,UNUSUAL_SYMBOL,LOW,0.0705,0.9417,0.1989,0.4447,LOW,LOW,False,
+20390,TRD040-000087,TRD040,EPSILONBANK,False,NONE,NONE,0.1443,0.723,0.0,0.3469,LOW,LOW,False,
+20391,TRD044-000860,TRD044,TAUAUTO,False,NONE,NONE,0.1467,0.9759,0.6,0.569,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20392,TRD036-000093,TRD036,EPSILONBANK,False,NONE,NONE,0.2297,0.7952,0.0,0.4099,LOW,LOW,False,
+20393,TRD003-000397,TRD003,SIGMAPOWER,False,NONE,NONE,0.3816,0.3232,0.0207,0.2861,LOW,LOW,False,
+20394,TRD019-000755,TRD019,ALPHATECH,False,NONE,NONE,0.3034,0.4406,0.0,0.2976,LOW,LOW,False,
+20395,TRD027-000082,TRD027,XITECH,False,NONE,NONE,0.3308,0.991,0.0,0.5287,LOW,LOW,False,
+20396,TRD019-000756,TRD019,GAMMAIND,False,NONE,NONE,0.2218,0.8111,0.0,0.4131,LOW,LOW,False,
+20397,TRD011-000466,TRD011,ETAMOTORS,True,LARGE_TRADE,MEDIUM,0.806,0.304,0.1893,0.4819,HIGH,LOW,False,
+20398,TRD037-000941,TRD037,XITECH,False,NONE,NONE,0.273,0.7275,0.0015,0.4005,LOW,LOW,False,
+20399,TRD010-000307,TRD010,ETAMOTORS,False,NONE,NONE,0.4267,0.0532,0.0,0.192,LOW,LOW,False,
+20400,TRD023-000099,TRD023,MUFINANCE,False,NONE,NONE,0.5133,0.962,0.0,0.5901,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20401,TRD003-000398,TRD003,THETAENERGY,False,NONE,NONE,0.1225,0.2468,0.0,0.1477,LOW,LOW,False,
+20402,TRD017-000256,TRD017,XITECH,False,NONE,NONE,0.4699,0.098,0.0,0.2272,LOW,LOW,False,
+20403,TRD019-000757,TRD019,ZETAPHARMA,False,NONE,NONE,0.1711,0.6538,0.0,0.33,LOW,LOW,False,
+20404,TRD026-000397,TRD026,TAUAUTO,False,NONE,NONE,0.1199,0.972,0.6,0.5568,LOW,LOW,False,
+20405,TRD026-000398,TRD026,TAUAUTO,False,NONE,NONE,0.244,0.9656,0.6,0.6039,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20406,TRD008-000093,TRD008,KAPPAFMCG,False,NONE,NONE,0.0949,0.8862,0.0,0.3924,LOW,LOW,False,
+20407,TRD028-000839,TRD028,BETACORP,False,NONE,NONE,0.228,0.9543,0.5884,0.5906,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20408,TRD038-000879,TRD038,THETAENERGY,False,NONE,NONE,0.1649,0.5751,0.0,0.296,LOW,LOW,False,
+20409,TRD006-000722,TRD006,EPSILONBANK,False,NONE,NONE,0.1715,0.5204,0.0,0.2768,LOW,LOW,False,
+20410,TRD002-000706,TRD002,ALPHATECH,False,NONE,NONE,0.2435,0.3983,0.0,0.2567,LOW,LOW,False,
+20411,TRD049-000269,TRD049,THETAENERGY,False,NONE,NONE,0.3451,0.1045,0.0,0.1798,LOW,LOW,False,
+20412,TRD004-000600,TRD004,OMICRONMFG,True,UNUSUAL_SYMBOL,LOW,0.4643,0.5883,0.1983,0.4607,LOW,LOW,False,
+20413,TRD035-000633,TRD035,KAPPAFMCG,False,NONE,NONE,0.1331,0.184,0.0,0.1269,LOW,LOW,False,
+20414,TRD029-000668,TRD029,ETAMOTORS,False,NONE,NONE,0.3312,0.0733,0.0,0.1618,LOW,LOW,False,
+20415,TRD002-000707,TRD002,RHOSOFT,False,NONE,NONE,0.2402,0.4284,0.0,0.2674,LOW,LOW,False,
+20416,TRD037-000942,TRD037,ZETAPHARMA,False,NONE,NONE,0.4124,0.7819,0.0,0.4777,LOW,LOW,False,
+20417,TRD001-000351,TRD001,DELTAENG,False,NONE,NONE,0.1648,0.2484,0.0,0.1653,LOW,LOW,False,
+20418,TRD017-000257,TRD017,XITECH,False,NONE,NONE,0.4792,0.1522,0.0,0.2526,LOW,LOW,False,
+20419,TRD037-000943,TRD037,ZETAPHARMA,False,NONE,NONE,0.5728,0.8584,0.0,0.5725,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The combination of features is unusual in the multivariate (Isolation Forest) view."
+20420,TRD026-000399,TRD026,TAUAUTO,False,NONE,NONE,0.4086,0.9745,0.6106,0.6753,LOW,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20421,TRD037-000944,TRD037,ZETAPHARMA,False,NONE,NONE,0.6165,0.901,0.0,0.607,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20422,TRD026-000400,TRD026,TAUAUTO,True,PRE_EVENT_ACTIVITY,MEDIUM,0.721,0.9782,0.6151,0.8027,MEDIUM,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20423,TRD035-000634,TRD035,KAPPAFMCG,False,NONE,NONE,0.1174,0.3448,0.0069,0.1863,LOW,LOW,False,
+20424,TRD045-000178,TRD045,ETAMOTORS,True,FREQUENCY_SPIKE,LOW,0.2152,0.2916,0.0,0.2027,LOW,LOW,False,
+20425,TRD031-000410,TRD031,UPSILONMEDS,True,UNUSUAL_SYMBOL,HIGH,0.1586,0.984,0.7976,0.6165,LOW,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The symbol is rarely traded by this trader.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20426,TRD018-000133,TRD018,EPSILONBANK,True,LARGE_QUANTITY,HIGH,1.0,0.4635,0.0,0.5854,HIGH,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.3 standard deviations above the trader's historical average.
+- Trading frequency was significantly higher than normal (3 trades in the last hour)."
+20427,TRD013-000887,TRD013,ZETAPHARMA,False,NONE,NONE,0.426,0.5743,0.0,0.4001,LOW,LOW,False,
+20428,TRD011-000467,TRD011,OMICRONMFG,False,NONE,NONE,0.0579,0.0852,0.0,0.0572,LOW,LOW,False,
+20429,TRD045-000179,TRD045,ETAMOTORS,True,FREQUENCY_SPIKE,LOW,0.2422,0.2298,0.0,0.1888,LOW,LOW,False,
+20430,TRD038-000880,TRD038,OMICRONMFG,False,NONE,NONE,0.3226,0.3263,0.0,0.2596,LOW,LOW,False,
+20431,TRD032-000310,TRD032,XITECH,False,NONE,NONE,0.6643,0.2835,0.0,0.3791,MEDIUM,LOW,False,
+20432,TRD021-000259,TRD021,ALPHATECH,False,NONE,NONE,1.0,0.6761,0.1887,0.7082,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 4.4 standard deviations above the trader's historical average.
+- The symbol is rarely traded by this trader.
+- The recent buy/sell mix deviates from the trader's historical pattern."
+20433,TRD045-000180,TRD045,MUFINANCE,True,FREQUENCY_SPIKE,LOW,0.2161,0.669,0.0,0.3541,LOW,LOW,False,
+20434,TRD045-000181,TRD045,EPSILONBANK,False,NONE,NONE,0.618,0.5981,0.1946,0.5253,MEDIUM,LOW,False,
+20435,TRD002-000708,TRD002,ALPHATECH,False,NONE,NONE,0.3358,0.3811,0.0,0.2868,LOW,LOW,False,
+20436,TRD026-000401,TRD026,TAUAUTO,True,PRE_EVENT_ACTIVITY,HIGH,0.9469,0.9943,0.6405,0.9046,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 3.8 standard deviations above the trader's historical average.
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20437,TRD001-000352,TRD001,DELTAENG,False,NONE,NONE,0.189,0.413,0.0,0.2408,LOW,LOW,False,
+20438,TRD045-000182,TRD045,ETAMOTORS,True,FREQUENCY_SPIKE,LOW,0.2711,0.5598,0.0,0.3323,LOW,LOW,False,
+20439,TRD030-000170,TRD030,DELTAENG,False,NONE,NONE,0.2142,0.566,0.0,0.3121,LOW,LOW,False,
+20440,TRD046-001020,TRD046,SIGMAPOWER,False,NONE,NONE,0.3186,0.4648,0.0207,0.3175,LOW,LOW,False,
+20441,TRD026-000402,TRD026,TAUAUTO,True,PRE_EVENT_ACTIVITY,MEDIUM,0.5829,0.9964,0.6504,0.7618,MEDIUM,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Market volume was significantly above its historical average.
+- The trade occurred shortly before a synthetic market event."
+20442,TRD045-000183,TRD045,ETAMOTORS,True,FREQUENCY_SPIKE,LOW,0.1914,0.6533,0.0,0.3379,LOW,LOW,False,
+20443,TRD042-000347,TRD042,KAPPAFMCG,False,NONE,NONE,0.4668,0.4809,0.0,0.3791,LOW,LOW,False,
+20444,TRD045-000184,TRD045,MUFINANCE,True,FREQUENCY_SPIKE,LOW,0.4406,0.9327,0.0,0.5493,LOW,LOW,False,
+20445,TRD044-000861,TRD044,XITECH,False,NONE,NONE,0.1028,0.264,0.0,0.1468,LOW,LOW,False,
+20446,TRD045-000185,TRD045,ETAMOTORS,True,FREQUENCY_SPIKE,LOW,0.2487,0.8438,0.0,0.437,LOW,LOW,False,
+20447,TRD019-000758,TRD019,ALPHATECH,False,NONE,NONE,0.1766,0.5699,0.0,0.2986,LOW,LOW,False,
+20448,TRD006-000723,TRD006,KAPPAFMCG,False,NONE,NONE,0.0921,0.1648,0.0,0.1028,LOW,LOW,False,
+20449,TRD045-000186,TRD045,MUFINANCE,True,FREQUENCY_SPIKE,LOW,0.3309,0.9615,0.0,0.517,LOW,LOW,False,
+20450,TRD049-000270,TRD049,RHOSOFT,False,NONE,NONE,0.3156,0.4884,0.0,0.3216,LOW,LOW,False,
+20451,TRD009-000414,TRD009,THETAENERGY,False,NONE,NONE,0.3101,0.1294,0.0,0.1758,LOW,LOW,False,
+20452,TRD006-000724,TRD006,GAMMAIND,False,NONE,NONE,0.3445,0.939,0.0486,0.5231,LOW,LOW,False,
+20453,TRD010-000308,TRD010,EPSILONBANK,False,NONE,NONE,0.3193,0.1196,0.0,0.1756,LOW,LOW,False,
+20454,TRD006-000725,TRD006,LAMBDAINFRA,False,NONE,NONE,0.1189,0.9229,0.2216,0.461,LOW,LOW,False,
+20455,TRD037-000945,TRD037,ZETAPHARMA,False,NONE,NONE,0.3198,0.8571,0.0,0.4708,LOW,LOW,False,
+20456,TRD049-000271,TRD049,ZETAPHARMA,True,LARGE_TRADE,HIGH,1.0,0.6654,0.138,0.6938,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 6.6 standard deviations above the trader's historical average.
+- Quantity was 3.4 standard deviations above the trader's historical average."
+20457,TRD047-000621,TRD047,PIBANK,False,NONE,NONE,0.3518,0.8552,0.1005,0.5029,LOW,LOW,False,
+20458,TRD048-000112,TRD048,THETAENERGY,False,NONE,NONE,0.224,0.445,0.0,0.2676,LOW,LOW,False,
+20459,TRD014-000730,TRD014,NUHEALTH,False,NONE,NONE,0.335,0.2806,0.0516,0.2566,LOW,LOW,False,
+20460,TRD038-000881,TRD038,TAUAUTO,False,NONE,NONE,0.1135,0.9929,0.25,0.4926,LOW,LOW,False,
+20461,TRD042-000348,TRD042,THETAENERGY,False,NONE,NONE,0.3703,0.4832,0.0,0.3414,LOW,LOW,False,
+20462,TRD010-000309,TRD010,ETAMOTORS,False,NONE,NONE,0.4325,0.1798,0.0,0.2449,LOW,LOW,False,
+20463,TRD019-000759,TRD019,NUHEALTH,False,NONE,NONE,0.2114,0.1976,0.1118,0.1859,LOW,LOW,False,
+20464,TRD016-000397,TRD016,EPSILONBANK,True,LARGE_QUANTITY,LOW,0.7973,0.2283,0.0,0.4102,HIGH,LOW,False,
+20465,TRD046-001021,TRD046,UPSILONMEDS,False,NONE,NONE,0.103,0.9985,0.25,0.4906,LOW,LOW,False,
+20466,TRD028-000840,TRD028,IOTATELECOM,False,NONE,NONE,0.2696,0.7604,0.2497,0.462,LOW,LOW,False,
+20467,TRD033-000898,TRD033,ETAMOTORS,False,NONE,NONE,0.1828,0.1728,0.0,0.1422,LOW,LOW,False,
+20468,TRD038-000882,TRD038,TAUAUTO,False,NONE,NONE,0.2674,0.9892,0.25,0.5527,LOW,LOW,False,
+20469,TRD010-000310,TRD010,ETAMOTORS,False,NONE,NONE,0.1188,0.1584,0.0154,0.114,LOW,LOW,False,
+20470,TRD002-000709,TRD002,ALPHATECH,False,NONE,NONE,0.4969,0.6156,0.0,0.445,LOW,LOW,False,
+20471,TRD026-000403,TRD026,ALPHATECH,True,UNUSUAL_TIME,LOW,0.3322,0.9182,0.1331,0.5268,LOW,LOW,False,
+20472,TRD014-000731,TRD014,KAPPAFMCG,False,NONE,NONE,0.4035,0.3515,0.1903,0.3401,LOW,LOW,False,
+20473,TRD021-000260,TRD021,OMICRONMFG,False,NONE,NONE,0.1856,0.2156,0.0,0.1605,LOW,LOW,False,
+20474,TRD027-000083,TRD027,XITECH,False,NONE,NONE,0.3094,0.9867,0.0,0.5185,LOW,LOW,False,
+20475,TRD033-000899,TRD033,ETAMOTORS,False,NONE,NONE,0.23,0.1401,0.0,0.148,LOW,LOW,False,
+20476,TRD046-001022,TRD046,THETAENERGY,False,NONE,NONE,0.4092,0.699,0.0271,0.4487,LOW,LOW,False,
+20477,TRD046-001023,TRD046,UPSILONMEDS,False,NONE,NONE,0.2045,0.9996,0.25,0.5316,LOW,LOW,False,
+20478,TRD042-000349,TRD042,SIGMAPOWER,False,NONE,NONE,0.517,0.4804,0.0207,0.4031,MEDIUM,LOW,False,
+20479,TRD019-000760,TRD019,LAMBDAINFRA,False,NONE,NONE,0.3144,0.6657,0.023,0.3966,LOW,LOW,False,
+20480,TRD019-000761,TRD019,LAMBDAINFRA,False,NONE,NONE,0.318,0.7034,0.023,0.4132,LOW,LOW,False,
+20481,TRD048-000113,TRD048,XITECH,False,NONE,NONE,0.459,0.6023,0.0,0.4245,LOW,LOW,False,
+20482,TRD007-000122,TRD007,EPSILONBANK,False,NONE,NONE,0.0765,0.8449,0.0,0.3686,LOW,LOW,False,
+20483,TRD025-000209,TRD025,ETAMOTORS,False,NONE,NONE,0.113,0.3748,0.0009,0.1953,LOW,LOW,False,
+20484,TRD033-000900,TRD033,EPSILONBANK,False,NONE,NONE,0.4394,0.1875,0.0,0.2508,LOW,LOW,False,
+20485,TRD007-000123,TRD007,EPSILONBANK,False,NONE,NONE,0.0752,0.7977,0.0,0.3492,LOW,LOW,False,
+20486,TRD004-000601,TRD004,BETACORP,False,NONE,NONE,0.2002,0.9888,0.2384,0.5233,LOW,LOW,False,
+20487,TRD025-000210,TRD025,TAUAUTO,False,NONE,NONE,0.2294,0.9663,0.25,0.5283,LOW,LOW,False,
+20488,TRD004-000602,TRD004,BETACORP,True,LARGE_QUANTITY,HIGH,1.0,0.9912,0.2384,0.8442,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Quantity was 4.4 standard deviations above the trader's historical average.
+- Market volume was significantly above its historical average."
+20489,TRD004-000603,TRD004,BETACORP,False,NONE,NONE,0.1832,0.9858,0.2384,0.5153,LOW,LOW,False,
+20490,TRD038-000883,TRD038,THETAENERGY,False,NONE,NONE,0.304,0.161,0.0,0.186,LOW,LOW,False,
+20491,TRD019-000762,TRD019,ALPHATECH,False,NONE,NONE,0.1254,0.3196,0.0,0.178,LOW,LOW,False,
+20492,TRD010-000311,TRD010,EPSILONBANK,False,NONE,NONE,0.5215,0.8322,0.0847,0.5584,MEDIUM,LOW,False,
+20493,TRD011-000468,TRD011,KAPPAFMCG,False,NONE,NONE,0.1034,0.0353,0.0,0.0555,LOW,LOW,False,
+20494,TRD017-000258,TRD017,IOTATELECOM,True,UNUSUAL_TIME,LOW,0.5373,0.8876,0.1555,0.601,MEDIUM,MEDIUM,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- The trade occurred 63 minutes outside the trader's preferred window."
+20495,TRD033-000901,TRD033,ETAMOTORS,False,NONE,NONE,0.1344,0.3477,0.0,0.1929,LOW,LOW,False,
+20496,TRD033-000902,TRD033,MUFINANCE,False,NONE,NONE,0.4008,0.9149,0.0,0.5263,LOW,LOW,False,
+20497,TRD048-000114,TRD048,ZETAPHARMA,True,LARGE_TRADE,HIGH,1.0,0.9266,0.0,0.7706,HIGH,HIGH,True,"Unusual trading activity detected. Further human review recommended.
+Trade flagged because:
+- Notional value was 3.3 standard deviations above the trader's historical average.
+- Quantity was 4.0 standard deviations above the trader's historical average."
+20498,TRD019-000763,TRD019,GAMMAIND,False,NONE,NONE,0.2438,0.8694,0.0121,0.4477,LOW,LOW,False,
+20499,TRD032-000311,TRD032,BETACORP,False,NONE,NONE,0.1691,0.9592,0.2603,0.5034,LOW,LOW,False,
+20500,TRD008-000094,TRD008,GAMMAIND,True,UNUSUAL_TIME,LOW,0.2492,0.9988,0.1247,0.5242,LOW,LOW,False,

@@ -1,0 +1,36 @@
+# ── Core Framework ──────────────────────────────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# ── Database ─────────────────────────────────────────────────────────────────
+sqlalchemy==2.0.36
+alembic==1.13.3
+# Use psycopg2-binary for PostgreSQL in production (RDS); sqlite works locally
+# psycopg2-binary==2.9.9     # uncomment when switching to RDS
+
+# ── Auth ─────────────────────────────────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+
+# ── Pydantic / Settings ───────────────────────────────────────────────────────
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# ── Anomaly Detection ────────────────────────────────────────────────────────
+numpy==1.26.4
+pandas==2.2.3
+scikit-learn==1.5.2
+joblib==1.4.2
+
+# ── AWS SDK (boto3 — used in cloud mode; mocked locally) ──────────────────────
+boto3==1.35.36
+botocore==1.35.36
+
+# ── Report Generation ────────────────────────────────────────────────────────
+reportlab==4.2.5
+
+# ── Utilities ────────────────────────────────────────────────────────────────
+python-dotenv==1.0.1
+httpx==0.27.2
+anyio==4.6.0

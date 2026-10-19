@@ -1,0 +1,21 @@
+symbol,company_name,sector,baseline_price,volatility,average_daily_volume,typical_spread
+ALPHATECH,Alpha Technologies Ltd,IT,1737.5,0.0244,817000,0.0018
+BETACORP,Beta Corporation Ltd,Finance,504.79,0.0152,2918000,0.00139
+GAMMAIND,Gamma Industries Ltd,Manufacturing,2374.24,0.0293,1905000,0.00159
+DELTAENG,Delta Engineering Ltd,Infrastructure,1309.86,0.0275,547000,0.00201
+EPSILONBANK,Epsilon Bank Ltd,Banking,141.54,0.0249,2914000,0.00173
+ZETAPHARMA,Zeta Pharmaceuticals Ltd,Pharma,3655.99,0.0115,2667000,0.00156
+ETAMOTORS,Eta Motors Ltd,Automobile,1657.26,0.0177,696000,0.00157
+THETAENERGY,Theta Energy Ltd,Energy,1816.86,0.008,506000,0.00104
+IOTATELECOM,Iota Telecom Ltd,Telecom,160.42,0.0105,1799000,0.00046
+KAPPAFMCG,Kappa Consumer Goods Ltd,FMCG,526.68,0.0227,314000,0.00132
+LAMBDAINFRA,Lambda Infrastructure Ltd,Infrastructure,392.68,0.0241,381000,0.00085
+MUFINANCE,Mu Finance Ltd,Finance,3053.04,0.0293,205000,0.00126
+NUHEALTH,Nu Healthcare Ltd,Healthcare,1075.25,0.0145,2518000,0.00219
+XITECH,Xi Technology Ltd,Technology,2080.24,0.0155,1700000,0.00089
+OMICRONMFG,Omicron Manufacturing Ltd,Manufacturing,513.31,0.0178,1936000,0.00052
+PIBANK,Pi Bank Ltd,Banking,231.23,0.0114,2469000,0.00099
+RHOSOFT,Rho Software Ltd,IT,773.53,0.01,876000,0.00102
+SIGMAPOWER,Sigma Power Ltd,Energy,126.54,0.0179,1248000,0.00179
+TAUAUTO,Tau Automobiles Ltd,Automobile,2117.95,0.0122,314000,0.00157
+UPSILONMEDS,Upsilon Medicines Ltd,Pharma,1027.93,0.0224,289000,0.00205
