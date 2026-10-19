@@ -916,41 +916,75 @@ Give me a COMPLETE, step-by-step workflow to build my part of this project. Do N
 Be extremely practical: give me real commands, real code structure, and real file names — not vague advice.
 ```
 
-### PROMPT B — Frontend Member
+### PROMPT B — Frontend Member (Updated with Live Backend Contract)
 
 ```
 You are helping Member 2 of our Group 6 project. You are responsible ONLY for the Frontend.
 
-PROJECT CONTEXT:
-We are building a "Cloud-Based Market Surveillance & Insider-Trading Anomaly Detection System" as a 3-person college Cloud Computing mini-project, using SYNTHETIC trading data only, deployed on AWS. The backend (Member 1, Django/FastAPI + PostgreSQL) exposes REST APIs for trades, alerts, and investigations, each with a risk level (Low/Medium/High). The Cloud member (Member 3) deploys everything to AWS behind an Application Load Balancer.
+PROJECT CONTEXT & BACKEND STATUS:
+We are building a "Cloud-Based Market Surveillance & Insider-Trading Anomaly Detection System" as a 3-person college Cloud Computing mini-project, using SYNTHETIC trading data only.
+Member 1 has COMPLETED, TESTED, and VERIFIED the entire FastAPI backend (running locally at http://localhost:8000). The backend runs with SQLite locally (PostgreSQL on AWS RDS), an in-process SQS worker queue, Z-score + Isolation Forest + contextual anomaly detection engine, and automated PDF compliance report generation.
+CORS is already configured on the backend for http://localhost:5173 (Vite) and http://localhost:3000.
 
-Your responsibilities: React.js application, dashboard UI, login/authentication UI, trade display, suspicious-activity/alert display, risk-level visualization, charts/statistics, alert detail view, investigation status UI, API integration, loading/error states, responsive/usable UI, frontend testing, preparing the frontend for AWS deployment, and final demo screens.
+DEFAULT AUTHENTICATED CREDENTIALS FOR TESTING & DEMO:
+- Admin / Compliance Officer: username "admin", password "admin123" (role: "admin")
+- Trader: username "trader1", password "trader123" (role: "trader")
+
+EXACT BACKEND REST API CONTRACT AVAILABLE RIGHT NOW:
+1. Authentication:
+   - POST /api/auth/login (JSON: {"username": "admin", "password": "admin123"}) -> Returns:
+     {"access_token": "<JWT_TOKEN>", "token_type": "bearer", "user_id": 1, "username": "admin", "role": "admin"}
+   - GET /api/auth/me (Header: Authorization: Bearer <token>) -> Returns current user info
+2. Reference Data (for dropdowns):
+   - GET /api/symbols -> Returns list of 20 symbols with: symbol, name, sector, baseline_price, daily_volatility, average_daily_volume
+   - GET /api/traders -> Returns list of 50 simulated traders with: trader_id, trader_type, avg_quantity, avg_notional, preferred_symbols
+3. Trader Terminal & Trade Execution:
+   - POST /api/trades (Bearer token) -> Submit manual trade:
+     Payload: {"trader_id": "TRD001", "symbol": "ALPHACORP", "side": "BUY"|"SELL", "quantity": 150, "price": 450.0}
+   - POST /api/trades/generate-suspicious (Bearer token) -> 1-click generator for demo: immediately queues an abnormal trade that triggers a HIGH-risk alert.
+   - POST /api/trades/generate-normal (Bearer token) -> 1-click generator for demo: queues a normal baseline trade.
+   - GET /api/trades?page=1&page_size=50&symbol=...&trader_id=...&source=... -> Paginated trade list.
+4. Surveillance Alerts & Anomaly Scoring:
+   - GET /api/alerts?page=1&page_size=20&risk_level=HIGH|MEDIUM|LOW&status=OPEN|UNDER_REVIEW|CLOSED -> Returns {"alerts": [...], "total": N}
+     Each alert includes: id, trade_id, risk_level ("LOW"|"MEDIUM"|"HIGH"), combined_score (0.0 to 1.0), notional_zscore, quantity_zscore, statistical_score, ml_score, context_score, reason, detected_at, status, sns_notified, and nested trade object.
+   - GET /api/alerts/latest -> Top 5 recent alerts for live ticker/toast notifications.
+   - GET /api/alerts/{id} -> Detailed alert record with trade details.
+   - PATCH /api/alerts/{id}/status -> JSON: {"status": "OPEN"|"UNDER_REVIEW"|"CLOSED"}.
+   - WebSocket: ws://localhost:8000/api/ws/alerts -> Real-time stream of new alerts as the anomaly engine flags them.
+5. Investigations & Compliance PDF Reports:
+   - POST /api/investigations (Bearer token, role: admin) -> Open investigation:
+     Payload: {"alert_ids": [1, 2], "notes": "Observed unusual volume ahead of earnings."}
+   - GET /api/investigations -> Returns list of investigations with status, opened_by, opened_at, alerts count, and report_url.
+   - GET /api/investigations/{id} -> Single investigation with all associated alerts and trades.
+   - PATCH /api/investigations/{id} -> Update status ("OPEN"|"UNDER_REVIEW"|"CLOSED") or notes.
+   - POST /api/investigations/{id}/report (Bearer token) -> Triggers automated PDF compliance report generation. Returns updated investigation with report_url.
+   - GET /api/reports/{investigation_id} -> Download or view the generated PDF report.
+6. Health Check:
+   - GET /api/health -> {"status": "ok", "app": "MarketSurveillanceAPI", "env": "local", ...}
+
+YOUR RESPONSIBILITIES & REQUIRED SCREENS (React + Vite recommended):
+1. Setup React app with Tailwind CSS or modern CSS tokens, Lucide icons, and Axios/Fetch API client.
+2. Screen 1: Login / Authentication page (role-based redirect to Trader Terminal or Surveillance Dashboard).
+3. Screen 2: Trader Terminal (role: trader/admin):
+   - Trade submission form with dynamic symbols and traders dropdowns.
+   - Demo buttons: "1-Click Generate Suspicious Trade" and "1-Click Generate Normal Trade" for effortless faculty demonstration.
+   - Real-time recent trades feed table.
+4. Screen 3: Surveillance Dashboard (role: admin):
+   - Key Metric Cards: Total Trades Watched, Active Alerts, High-Risk Flags, Open Investigations.
+   - Risk Visualizer: Badges/meters for LOW (green), MEDIUM (amber), HIGH (red/crimson).
+   - Charts: Trade volume over time and Risk Distribution breakdown (using Chart.js, Recharts, or lightweight canvas).
+   - Live Alerts Table with filters (Risk Level, Status) and search.
+5. Screen 4: Alert Detail Modal / Inspector:
+   - View anomaly breakdown: Z-score gauge, Isolation Forest ML score, contextual pre-event timing score.
+   - Natural language explanation reason generated by the detection engine.
+   - 1-click button: "Escalate to Investigation".
+6. Screen 5: Investigation Case Management & Compliance Export:
+   - Active cases list with status badges.
+   - Case detail view with attached alerts & trades.
+   - "Generate Official Compliance PDF Report" button that calls the backend and displays/downloads the generated PDF.
 
 TASK:
-Give me a COMPLETE, step-by-step workflow to build my part of this project. Do NOT skip steps and do NOT assume I already know things. Cover, in order:
-1. React project setup and structure
-2. Dashboard layout/navigation design
-3. Login/authentication UI (working with a JWT-based backend)
-4. Trade table component (with filters/pagination)
-5. Alert table component (with risk-level badges/colors)
-6. Risk indicator components (Low/Medium/High visualization)
-7. Charts for trade volume and risk distribution (recommend a lightweight charting library)
-8. Alert detail page/modal
-9. Investigation status UI (list + update status)
-10. API integration layer (a clean API client, not scattered fetch calls)
-11. Loading and error states for every data-driven view
-12. Environment variable management for the API base URL
-13. What I need to confirm with the backend member (API contract, response shapes, auth header format)
-14. Local testing approach
-15. Production build process
-16. AWS deployment considerations for the frontend (where it will be served from, given the backend is behind an ALB)
-17. Connecting to the ALB/backend URL and handling CORS
-18. Git workflow for my branch
-19. What I need to hand over to the other members and what I need from them
-20. Faculty demo preparation — what screens to show and in what order
-21. Documentation I should write
-
-Be extremely practical: give me real component structure, real code, and real file names — not vague advice.
+Give me a COMPLETE, production-ready, step-by-step implementation guide to build this React frontend matching the exact backend APIs above. Provide complete code for the API client, auth context, UI components, and demo walkthrough.
 ```
 
 ### PROMPT C — AWS Cloud + Deployment Member
