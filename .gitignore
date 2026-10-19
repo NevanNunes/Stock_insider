@@ -36,3 +36,7 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 .DS_Store
+node_modules/
+dist/
+.env.local
+*.log
