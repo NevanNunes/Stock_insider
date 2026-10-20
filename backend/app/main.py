@@ -55,6 +55,12 @@ app.include_router(trades.router)
 app.include_router(alerts.router)
 app.include_router(investigations.router)
 
+# ── Direct WebSocket routes (matching both /api/ws/alerts and /ws/alerts) ───────
+from app.api.alerts import alerts_websocket
+app.add_api_websocket_route("/api/ws/alerts", alerts_websocket)
+app.add_api_websocket_route("/ws/alerts", alerts_websocket)
+
+
 
 # ── Health check ───────────────────────────────────────────────────────────────
 @app.get("/api/health", tags=["System"])

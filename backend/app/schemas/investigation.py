@@ -33,12 +33,15 @@ class InvestigationResponse(BaseModel):
 
     @classmethod
     def from_orm_with_count(cls, inv) -> "InvestigationResponse":
+        url = inv.report_url
+        if url and url.startswith("file://"):
+            url = f"http://localhost:8000/api/reports/{inv.id}/pdf"
         return cls(
             id=inv.id,
             opened_by=inv.opened_by,
             status=inv.status,
             notes=inv.notes,
-            report_url=inv.report_url,
+            report_url=url,
             opened_at=inv.opened_at,
             closed_at=inv.closed_at,
             alert_count=len(inv.alerts),

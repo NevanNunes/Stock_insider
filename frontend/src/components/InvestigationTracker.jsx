@@ -137,7 +137,12 @@ function InvestigationRow({ inv, onRefresh }) {
                         Generate PDF Report
                       </button>
                       {reportUrl && (
-                        <a href={reportUrl} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+                        <a
+                          href={reportUrl.startsWith('file://') ? `http://localhost:8000/api/reports/${inv.id}/pdf` : reportUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="btn btn-ghost btn-sm"
+                        >
                           <ExternalLink size={13} /> View Report
                         </a>
                       )}

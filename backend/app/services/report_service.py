@@ -140,5 +140,4 @@ def save_report(
     local_dir.mkdir(parents=True, exist_ok=True)
     local_path = local_dir / filename
     local_path.write_bytes(pdf_bytes)
-    logger.info("Report saved locally to %s", local_path)
-    return str(local_path), f"file://{local_path.resolve()}"
+    return str(local_path), f"http://localhost:8000/api/reports/{investigation_id}/pdf"

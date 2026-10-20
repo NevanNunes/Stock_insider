@@ -87,7 +87,10 @@ def get_alert(
 # ── WebSocket endpoint ────────────────────────────────────────────────────────
 
 @router.websocket("/ws/alerts")
-async def alerts_websocket(websocket: WebSocket):
+async def alerts_websocket(
+    websocket: WebSocket,
+    token: Optional[str] = Query(None),
+):
     """
     Real-time alert stream for Admin Dashboard.
     Connect with:  ws://localhost:8000/ws/alerts?token=<JWT>

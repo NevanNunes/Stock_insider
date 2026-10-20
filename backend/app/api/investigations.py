@@ -114,7 +114,13 @@ def update_investigation(
     return InvestigationResponse.from_orm_with_count(inv)
 
 
+from fastapi.responses import FileResponse, Response
+from pathlib import Path
+
+
 @router.get("/reports/{inv_id}")
+@router.post("/reports/{inv_id}")
+@router.post("/investigations/{inv_id}/report")
 def generate_report(
     inv_id: int,
     db: Session = Depends(get_db),
@@ -147,3 +153,59 @@ def generate_report(
     db.commit()
 
     return {"investigation_id": inv_id, "report_url": url, "s3_key": s3_key}
+
+
+@router.get("/reports/{inv_id}/pdf")
+@router.get("/investigations/{inv_id}/pdf")
+def get_report_pdf(
+    inv_id: int,
+    db: Session = Depends(get_db),
+):
+    """
+    Serve the generated PDF report directly to the browser.
+    """
+    inv = (
+        db.query(Investigation)
+        .options(joinedload(Investigation.alerts).joinedload(AnomalyAlert.trade))
+        .filter(Investigation.id == inv_id)
+        .first()
+    )
+    if not inv:
+        raise HTTPException(status_code=404, detail="Investigation not found")
+
+    # If file exists on disk
+    if inv.report_s3_key and Path(inv.report_s3_key).exists():
+        return FileResponse(
+            inv.report_s3_key,
+            media_type="application/pdf",
+            filename=f"investigation_{inv_id}_report.pdf",
+        )
+
+    # Search in storage/reports for any candidate
+    reports_dir = Path("storage/reports")
+    candidates = list(reports_dir.glob(f"investigation_{inv_id}_*.pdf")) if reports_dir.exists() else []
+    if candidates:
+        latest = sorted(candidates, key=lambda p: p.stat().st_mtime, reverse=True)[0]
+        return FileResponse(
+            str(latest),
+            media_type="application/pdf",
+            filename=latest.name,
+        )
+
+    # If not yet generated, generate it now
+    pdf_bytes = generate_pdf_report(
+        investigation_id=inv.id,
+        alerts=inv.alerts,
+        notes=inv.notes or "",
+        opened_by="compliance_officer",
+    )
+    s3_key, url = save_report(inv.id, pdf_bytes)
+    inv.report_s3_key = s3_key
+    inv.report_url = url
+    db.commit()
+
+    return FileResponse(
+        s3_key,
+        media_type="application/pdf",
+        filename=f"investigation_{inv_id}_report.pdf",
+    )
