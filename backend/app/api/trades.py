@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from app.core.dependencies import get_current_user, get_db
 from app.models.symbol import Symbol
@@ -253,7 +253,7 @@ def list_trades(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    q = db.query(Trade)
+    q = db.query(Trade).options(joinedload(Trade.alert))
     if trader_id:
         q = q.filter(Trade.trader_id == trader_id)
     if symbol:
@@ -271,7 +271,7 @@ def get_trade(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    trade = db.query(Trade).filter(Trade.id == trade_id).first()
+    trade = db.query(Trade).options(joinedload(Trade.alert)).filter(Trade.id == trade_id).first()
     if not trade:
         raise HTTPException(status_code=404, detail="Trade not found")
     return trade

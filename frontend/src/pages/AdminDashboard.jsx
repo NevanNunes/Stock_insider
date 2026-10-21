@@ -101,12 +101,16 @@ export default function AdminDashboard() {
       // Group by day for area chart
       const byDay = {};
       list.forEach((t) => {
-        const day = new Date(t.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        if (!byDay[day]) byDay[day] = { day, normal: 0, suspicious: 0 };
-        if (t.alert?.risk_level === 'HIGH') byDay[day].suspicious++;
-        else byDay[day].normal++;
+        const dateObj = new Date(t.timestamp);
+        const day = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const dateKey = dateObj.toISOString().split('T')[0];
+        if (!byDay[dateKey]) byDay[dateKey] = { day, dateKey, normal: 0, suspicious: 0 };
+        const isSuspicious = t.alert && (t.alert.risk_level === 'HIGH' || t.alert.risk_level === 'MEDIUM');
+        if (isSuspicious) byDay[dateKey].suspicious++;
+        else byDay[dateKey].normal++;
       });
-      setTradeVolumeData(Object.values(byDay).slice(-14));
+      const sortedDays = Object.values(byDay).sort((a, b) => a.dateKey.localeCompare(b.dateKey));
+      setTradeVolumeData(sortedDays.slice(-14));
     } catch { } finally { setLoadingTrades(false); }
 
     // Load investigations count

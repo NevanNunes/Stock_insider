@@ -40,6 +40,14 @@ class BulkGenerateRequest(BaseModel):
 
 # ── Responses ──────────────────────────────────────────────────────────────────
 
+class TradeAlertSummary(BaseModel):
+    model_config = {"from_attributes": True}
+
+    id: int
+    risk_level: str
+    combined_score: Optional[float] = None
+
+
 class TradeResponse(BaseModel):
     model_config = {"from_attributes": True}
 
@@ -55,6 +63,7 @@ class TradeResponse(BaseModel):
     timestamp: datetime
     source: str
     is_processed: bool
+    alert: Optional[TradeAlertSummary] = None
 
 
 class TradeListResponse(BaseModel):
