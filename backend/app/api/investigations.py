@@ -53,7 +53,15 @@ def open_investigation(
         alert.status = "UNDER_REVIEW"
 
     db.commit()
-    db.refresh(inv)
+    inv = (
+        db.query(Investigation)
+        .options(
+            joinedload(Investigation.alerts).joinedload(AnomalyAlert.trade),
+            joinedload(Investigation.opened_by_user),
+        )
+        .filter(Investigation.id == inv.id)
+        .first()
+    )
     return InvestigationResponse.from_orm_with_count(inv)
 
 
@@ -65,7 +73,10 @@ def list_investigations(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    q = db.query(Investigation).options(joinedload(Investigation.alerts))
+    q = db.query(Investigation).options(
+        joinedload(Investigation.alerts).joinedload(AnomalyAlert.trade),
+        joinedload(Investigation.opened_by_user),
+    )
     if status:
         q = q.filter(Investigation.status == status.upper())
     invs = q.order_by(Investigation.opened_at.desc()).offset(skip).limit(limit).all()
@@ -80,7 +91,10 @@ def get_investigation(
 ):
     inv = (
         db.query(Investigation)
-        .options(joinedload(Investigation.alerts))
+        .options(
+            joinedload(Investigation.alerts).joinedload(AnomalyAlert.trade),
+            joinedload(Investigation.opened_by_user),
+        )
         .filter(Investigation.id == inv_id)
         .first()
     )
@@ -96,7 +110,15 @@ def update_investigation(
     db: Session = Depends(get_db),
     current_user: User = Depends(require_admin),
 ):
-    inv = db.query(Investigation).filter(Investigation.id == inv_id).first()
+    inv = (
+        db.query(Investigation)
+        .options(
+            joinedload(Investigation.alerts).joinedload(AnomalyAlert.trade),
+            joinedload(Investigation.opened_by_user),
+        )
+        .filter(Investigation.id == inv_id)
+        .first()
+    )
     if not inv:
         raise HTTPException(status_code=404, detail="Investigation not found")
 

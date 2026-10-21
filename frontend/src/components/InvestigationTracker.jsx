@@ -13,7 +13,7 @@ function StatusBadge({ status }) {
 function InvestigationRow({ inv, onRefresh }) {
   const { isAdmin } = useAuth();
   const [expanded, setExpanded] = useState(false);
-  const [detail, setDetail] = useState(null);
+  const [detail, setDetail] = useState(inv);
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [updating, setUpdating] = useState(false);
   const [generatingReport, setGeneratingReport] = useState(false);
@@ -22,18 +22,19 @@ function InvestigationRow({ inv, onRefresh }) {
   const [reportUrl, setReportUrl] = useState(inv.report_url || null);
 
   const loadDetail = async () => {
-    if (detail) return;
     setLoadingDetail(true);
     try {
       const { data } = await investigationsAPI.get(inv.id);
       setDetail(data);
+      if (data.report_url) setReportUrl(data.report_url);
     } catch { /* ignore */ }
     finally { setLoadingDetail(false); }
   };
 
   const handleToggle = () => {
-    setExpanded((e) => !e);
-    if (!expanded) loadDetail();
+    const nextState = !expanded;
+    setExpanded(nextState);
+    if (nextState) loadDetail();
   };
 
   const handleUpdate = async () => {
@@ -55,8 +56,13 @@ function InvestigationRow({ inv, onRefresh }) {
     finally { setGeneratingReport(false); }
   };
 
+  const currentAlerts = detail?.alerts || inv.alerts || [];
+  const alertCount = inv.alert_count ?? currentAlerts.length ?? inv.alerts_count ?? 1;
+  const opener = inv.opened_by_username || (inv.opened_by === 1 ? 'Admin' : `User #${inv.opened_by}`);
+
   return (
-    <div className="card" style={{ padding: 0, overflow: 'hidden', marginBottom: 'var(--space-sm)' }}>
+    <div className="card" style={{ padding: 0, overflow: 'hidden', marginBottom: 'var(--space-md)' }}>
+      {/* Clickable Header Bar */}
       <button
         onClick={handleToggle}
         style={{
@@ -66,92 +72,203 @@ function InvestigationRow({ inv, onRefresh }) {
           color: 'var(--text-primary)', textAlign: 'left',
         }}
       >
-        <Folder size={16} color="var(--text-accent)" style={{ flexShrink: 0 }} />
+        <Folder size={18} color="var(--text-accent)" style={{ flexShrink: 0 }} />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-            <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>Case #{inv.id}</span>
+          {/* Top Row: Case #, Badges, Target Trader & Symbol, Notional */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 4 }}>
+            <span style={{ fontWeight: 700, fontSize: '0.92rem' }}>Case #{inv.id}</span>
+            {inv.highest_risk_level && <RiskBadge level={inv.highest_risk_level} />}
             <StatusBadge status={inv.status} />
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              {inv.alerts_count ?? '?'} alert{inv.alerts_count !== 1 ? 's' : ''} · by {inv.opened_by}
+            {inv.primary_trader_id && (
+              <span style={{
+                fontWeight: 600, fontSize: '0.8rem', color: 'var(--accent-blue)',
+                background: 'rgba(59, 130, 246, 0.12)', padding: '2px 8px', borderRadius: 4,
+                fontFamily: 'var(--font-mono)'
+              }}>
+                {inv.primary_trader_id}
+              </span>
+            )}
+            {inv.primary_symbol && (
+              <span style={{
+                fontWeight: 600, fontSize: '0.8rem', color: 'var(--text-primary)',
+                background: 'rgba(255, 255, 255, 0.08)', padding: '2px 8px', borderRadius: 4
+              }}>
+                {inv.primary_symbol}
+              </span>
+            )}
+            {inv.total_notional && (
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
+                ${Math.round(inv.total_notional).toLocaleString()}
+              </span>
+            )}
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: 'auto' }}>
+              {alertCount} alert{alertCount !== 1 ? 's' : ''} · by {opener}
             </span>
           </div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 2 }}>
-            Opened {new Date(inv.opened_at).toLocaleString()}
+
+          {/* Subtitle Row: Descriptive Anomaly Reason or Notes */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.78rem' }}>
+            <div style={{
+              flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+              color: inv.summary_reason ? 'var(--text-secondary)' : 'var(--text-muted)'
+            }}>
+              {inv.summary_reason ? (
+                <span>⚠️ {inv.summary_reason}</span>
+              ) : inv.notes ? (
+                <span style={{ fontStyle: 'italic' }}>📝 {inv.notes}</span>
+              ) : (
+                <span>Surveillance case open for investigation</span>
+              )}
+            </div>
+            <span style={{ color: 'var(--text-muted)', flexShrink: 0, fontSize: '0.72rem' }}>
+              Opened {new Date(inv.opened_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+            </span>
           </div>
         </div>
         {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
       </button>
 
+      {/* Expanded Details Pane */}
       {expanded && (
         <div style={{ borderTop: '1px solid var(--border)', padding: 'var(--space-lg)' }}>
-          {loadingDetail && <div className="loading-overlay" style={{ padding: 'var(--space-lg)' }}><div className="spinner" /></div>}
-
-          {detail && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-              {/* Alerts attached */}
-              {detail.alerts?.length > 0 && (
-                <div>
-                  <div className="section-title" style={{ marginBottom: 8 }}>Attached Alerts</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                    {detail.alerts.map((a) => (
-                      <div key={a.id} style={{
-                        display: 'flex', alignItems: 'center', gap: 10,
-                        background: 'var(--bg-glass)', borderRadius: 'var(--radius-sm)',
-                        padding: '8px 12px', fontSize: '0.82rem',
-                      }}>
-                        <RiskBadge level={a.risk_level} />
-                        <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>#{a.id}</span>
-                        <span>{a.trade?.symbol} {a.trade?.side} {a.trade?.quantity?.toLocaleString()}</span>
-                        <span style={{ marginLeft: 'auto', color: 'var(--text-muted)', fontSize: '0.75rem' }}>
-                          Score: {a.combined_score?.toFixed(2)}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Update form (admin only) */}
-              {isAdmin && (
-                <div>
-                  <div className="section-title" style={{ marginBottom: 8 }}>Update Case</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    <select className="form-select" value={newStatus} onChange={(e) => setNewStatus(e.target.value)}>
-                      {STATUS_OPTIONS.map((s) => <option key={s} value={s}>{s.replace('_', ' ')}</option>)}
-                    </select>
-                    <textarea
-                      className="form-textarea"
-                      rows={3}
-                      placeholder="Add/update notes..."
-                      value={newNotes}
-                      onChange={(e) => setNewNotes(e.target.value)}
-                      style={{ resize: 'vertical', minHeight: 60 }}
-                    />
-                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                      <button className="btn btn-primary btn-sm" onClick={handleUpdate} disabled={updating}>
-                        {updating ? <Loader size={13} className="spin-icon" /> : <RefreshCw size={13} />}
-                        Save Changes
-                      </button>
-                      <button className="btn btn-ghost btn-sm" onClick={handleGenerateReport} disabled={generatingReport}>
-                        {generatingReport ? <Loader size={13} /> : <FileText size={13} />}
-                        Generate PDF Report
-                      </button>
-                      {reportUrl && (
-                        <a
-                          href={reportUrl.startsWith('file://') ? `http://localhost:8000/api/reports/${inv.id}/pdf` : reportUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="btn btn-ghost btn-sm"
-                        >
-                          <ExternalLink size={13} /> View Report
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
+          {loadingDetail && (
+            <div className="loading-overlay" style={{ padding: 'var(--space-md)' }}>
+              <div className="spinner" />
             </div>
           )}
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+            {/* Quick Context Summary Grid */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gap: 10,
+              background: 'rgba(255, 255, 255, 0.02)',
+              border: '1px solid var(--border)',
+              borderRadius: 'var(--radius-sm)',
+              padding: '12px 16px',
+            }}>
+              <div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Trader Account</div>
+                <div style={{ fontWeight: 600, color: 'var(--accent-blue)', fontFamily: 'var(--font-mono)', fontSize: '0.9rem', marginTop: 2 }}>
+                  {inv.primary_trader_id || '—'}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Instrument</div>
+                <div style={{ fontWeight: 600, fontSize: '0.9rem', marginTop: 2 }}>
+                  {inv.primary_symbol || '—'}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Notional Value</div>
+                <div style={{ fontWeight: 600, fontSize: '0.9rem', fontFamily: 'var(--font-mono)', marginTop: 2 }}>
+                  {inv.total_notional ? `$${Math.round(inv.total_notional).toLocaleString()}` : '—'}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Severity</div>
+                <div style={{ marginTop: 2 }}>
+                  <RiskBadge level={inv.highest_risk_level || 'LOW'} />
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Trade Code</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: 2 }}>
+                  {inv.primary_trade_code || '—'}
+                </div>
+              </div>
+            </div>
+
+            {/* Attached Alerts List with full details */}
+            {currentAlerts.length > 0 && (
+              <div>
+                <div className="section-title" style={{ marginBottom: 8 }}>Attached Alerts ({currentAlerts.length})</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  {currentAlerts.map((a) => (
+                    <div key={a.id} style={{
+                      background: 'var(--bg-glass)',
+                      border: '1px solid var(--border)',
+                      borderRadius: 'var(--radius-sm)',
+                      padding: '10px 14px',
+                      fontSize: '0.85rem',
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: a.reason ? 6 : 0 }}>
+                        <RiskBadge level={a.risk_level} />
+                        <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', fontWeight: 600 }}>Alert #{a.id}</span>
+                        {a.trade && (
+                          <>
+                            <span style={{ fontWeight: 600 }}>{a.trade.symbol}</span>
+                            <span style={{ color: a.trade.side === 'BUY' ? 'var(--risk-low)' : 'var(--risk-high)', fontWeight: 700 }}>
+                              {a.trade.side}
+                            </span>
+                            <span className="td-mono">{a.trade.quantity?.toLocaleString()} shs @ ${a.trade.price?.toFixed(2)}</span>
+                            <span className="td-mono">(${Math.round(a.trade.notional_value).toLocaleString()})</span>
+                          </>
+                        )}
+                        <span style={{ marginLeft: 'auto', color: 'var(--text-muted)', fontSize: '0.75rem' }}>
+                          Score: {a.combined_score?.toFixed(3)}
+                          {a.notional_zscore !== null && a.notional_zscore !== undefined && (
+                            ` · Z: ${a.notional_zscore >= 0 ? '+' : ''}${a.notional_zscore.toFixed(1)}σ`
+                          )}
+                        </span>
+                      </div>
+                      {a.reason && (
+                        <div style={{
+                          fontSize: '0.78rem', color: 'var(--text-secondary)',
+                          lineHeight: 1.4, paddingLeft: 8, borderLeft: '2px solid var(--border)', marginTop: 4
+                        }}>
+                          {a.reason.split('\n').filter(l => l.trim().startsWith('-')).map((line, idx) => (
+                            <div key={idx} style={{ marginTop: 2 }}>{line.trim()}</div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Case Management & Update Form */}
+            {isAdmin && (
+              <div>
+                <div className="section-title" style={{ marginBottom: 8 }}>Update Case</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <select className="form-select" value={newStatus} onChange={(e) => setNewStatus(e.target.value)}>
+                    {STATUS_OPTIONS.map((s) => <option key={s} value={s}>{s.replace('_', ' ')}</option>)}
+                  </select>
+                  <textarea
+                    className="form-textarea"
+                    rows={3}
+                    placeholder="Add/update compliance notes..."
+                    value={newNotes}
+                    onChange={(e) => setNewNotes(e.target.value)}
+                    style={{ resize: 'vertical', minHeight: 60 }}
+                  />
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                    <button className="btn btn-primary btn-sm" onClick={handleUpdate} disabled={updating}>
+                      {updating ? <Loader size={13} className="spin-icon" /> : <RefreshCw size={13} />}
+                      Save Changes
+                    </button>
+                    <button className="btn btn-ghost btn-sm" onClick={handleGenerateReport} disabled={generatingReport}>
+                      {generatingReport ? <Loader size={13} /> : <FileText size={13} />}
+                      Generate PDF Report
+                    </button>
+                    {reportUrl && (
+                      <a
+                        href={reportUrl.startsWith('file://') ? `http://localhost:8000/api/reports/${inv.id}/pdf` : reportUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-ghost btn-sm"
+                      >
+                        <ExternalLink size={13} /> View Report
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
