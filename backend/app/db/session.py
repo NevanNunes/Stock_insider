@@ -18,6 +18,7 @@ connect_args = {"check_same_thread": False} if "sqlite" in settings.DATABASE_URL
 engine = create_engine(
     settings.DATABASE_URL,
     connect_args=connect_args,
+    pool_pre_ping=True,    # Tests connection liveness to handle RDS idle timeouts gracefully
     echo=settings.DEBUG,   # prints SQL queries in debug mode — disable in prod
 )
 

@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+// In development default to http://localhost:8000; in production default to current host (relative URL)
+const BASE_URL = import.meta.env.VITE_API_BASE_URL !== undefined
+  ? import.meta.env.VITE_API_BASE_URL
+  : (import.meta.env.DEV ? 'http://localhost:8000' : '');
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -87,7 +90,13 @@ export const healthAPI = {
 // ── WebSocket helper ──────────────────────────────────────
 export const getWebSocketURL = () => {
   const token = localStorage.getItem('access_token');
-  const wsBase = BASE_URL.replace(/^http/, 'ws');
+  let wsBase;
+  if (BASE_URL) {
+    wsBase = BASE_URL.replace(/^http/, 'ws');
+  } else {
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    wsBase = `${protocol}//${window.location.host}`;
+  }
   return `${wsBase}/api/ws/alerts${token ? `?token=${token}` : ''}`;
 };
 

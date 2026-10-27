@@ -5,8 +5,8 @@ uvicorn[standard]==0.30.6
 # ── Database ─────────────────────────────────────────────────────────────────
 sqlalchemy==2.0.36
 alembic==1.13.3
-# Use psycopg2-binary for PostgreSQL in production (RDS); sqlite works locally
-# psycopg2-binary==2.9.9     # uncomment when switching to RDS
+# Database driver: psycopg2-binary for PostgreSQL in production (RDS); SQLite works out of the box
+psycopg2-binary>=2.9.9
 
 # ── Auth ─────────────────────────────────────────────────────────────────────
 python-jose[cryptography]==3.3.0

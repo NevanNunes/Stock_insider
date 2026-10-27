@@ -195,7 +195,14 @@ def get_report_pdf(
     if not inv:
         raise HTTPException(status_code=404, detail="Investigation not found")
 
-    # If file exists on disk
+    # If using S3 and report_url is a presigned S3 URL, redirect directly to S3
+    from app.core.config import settings
+    from fastapi.responses import RedirectResponse
+
+    if settings.use_s3 and inv.report_url and inv.report_url.startswith("http"):
+        return RedirectResponse(url=inv.report_url)
+
+    # If file exists on disk (local development)
     if inv.report_s3_key and Path(inv.report_s3_key).exists():
         return FileResponse(
             inv.report_s3_key,
@@ -225,6 +232,9 @@ def get_report_pdf(
     inv.report_s3_key = s3_key
     inv.report_url = url
     db.commit()
+
+    if settings.use_s3 and url.startswith("http"):
+        return RedirectResponse(url=url)
 
     return FileResponse(
         s3_key,

@@ -56,6 +56,10 @@ class Settings(BaseSettings):
     # ── Local storage fallback ────────────────────────────────────────────────
     LOCAL_STORAGE_DIR: str = "./storage/reports"
 
+    # ── AWS Systems Manager Parameter Store ───────────────────────────────────
+    USE_PARAMETER_STORE: bool = False
+    SSM_PARAM_PREFIX: str = "/market_surveillance/"
+
     # ── Derived helpers ───────────────────────────────────────────────────────
     @property
     def is_local(self) -> bool:
@@ -82,4 +86,30 @@ class Settings(BaseSettings):
         return Path(self.DATA_DIR).resolve()
 
 
+def load_from_ssm(s: Settings) -> None:
+    """Fetch configuration directly from AWS Systems Manager Parameter Store if enabled."""
+    if not s.USE_PARAMETER_STORE:
+        return
+    try:
+        import boto3
+        import logging
+        logger = logging.getLogger(__name__)
+        kwargs = {"region_name": s.AWS_REGION}
+        if s.AWS_ACCESS_KEY_ID:
+            kwargs["aws_access_key_id"] = s.AWS_ACCESS_KEY_ID
+            kwargs["aws_secret_access_key"] = s.AWS_SECRET_ACCESS_KEY
+        ssm = boto3.client("ssm", **kwargs)
+        paginator = ssm.get_paginator("get_parameters_by_path")
+        for page in paginator.paginate(Path=s.SSM_PARAM_PREFIX, WithDecryption=True, Recursive=True):
+            for p in page.get("Parameters", []):
+                key = p["Name"].removeprefix(s.SSM_PARAM_PREFIX).strip("/").upper()
+                if hasattr(s, key):
+                    setattr(s, key, p["Value"])
+                    logger.info("Loaded SSM parameter: %s", key)
+    except Exception as exc:
+        import logging
+        logging.getLogger(__name__).warning("Could not load from SSM Parameter Store: %s", exc)
+
+
 settings = Settings()
+load_from_ssm(settings)
