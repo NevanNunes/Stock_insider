@@ -18,6 +18,7 @@ from app.core.config import settings
 from app.db.base import Base
 from app.db.seeder import run_all_seeds
 from app.db.session import SessionLocal, engine
+import app.models  # Register all SQLAlchemy models before create_all()
 from app.workers.sqs_worker import run_worker
 
 logging.basicConfig(
