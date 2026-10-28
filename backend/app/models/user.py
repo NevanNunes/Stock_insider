@@ -28,6 +28,7 @@ class User(Base):
     role: Mapped[str] = mapped_column(
         Enum("admin", "trader", name="user_role"), default="trader", nullable=False
     )
+    trader_id: Mapped[str | None] = mapped_column(String(16), nullable=True, index=True)  # set for trader-role users
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)

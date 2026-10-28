@@ -31,12 +31,15 @@ function AppShell() {
   const [wsStatus, setWsStatus] = useState('disconnected');
 
   const handleWsMessage = useCallback((msg) => {
+    // Only admins should receive high-risk toast notifications
+    if (user?.role !== 'admin') return;
     if (msg.risk_level === 'HIGH' || msg.risk_level === 'MEDIUM') {
       addToast(msg);
     }
-  }, [addToast]);
+  }, [addToast, user]);
 
-  const { status } = useWebSocket(user ? handleWsMessage : () => {});
+  // Only open a WebSocket for admin users — traders have no access to the alert stream
+  const { status } = useWebSocket(user?.role === 'admin' ? handleWsMessage : null);
 
   return (
     <div className="app-layout">
@@ -99,4 +102,3 @@ function RegisterGate() {
   if (user) return <Navigate to={user.role === 'admin' ? '/dashboard' : '/terminal'} replace />;
   return <Register />;
 }
-

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { tradesAPI } from '../api/client';
+import { useAuth } from '../context/AuthContext';
 import { Activity, RefreshCw, Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import RiskBadge from '../components/RiskBadge';
 
@@ -8,6 +9,7 @@ function formatCurrency(n) {
 }
 
 export default function Trades() {
+  const { user } = useAuth();
   const [trades, setTrades] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -17,7 +19,7 @@ export default function Trades() {
 
   const loadTrades = useCallback(() => {
     setLoading(true);
-    tradesAPI.list({ page, page_size: PAGE_SIZE })
+    tradesAPI.list({ page, page_size: PAGE_SIZE, ...(user?.trader_id ? { trader_id: user.trader_id } : {}) })
       .then(({ data }) => {
         const list = Array.isArray(data) ? data : data.trades || [];
         setTrades(list);
@@ -25,7 +27,7 @@ export default function Trades() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [page]);
+  }, [page, user?.trader_id]);
 
   useEffect(() => { loadTrades(); }, [loadTrades]);
 

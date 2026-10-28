@@ -12,6 +12,18 @@ export function AuthProvider({ children }) {
   });
   const [loading, setLoading] = useState(false);
 
+  // On startup, refresh user profile from /api/auth/me to pick up trader_id
+  // (needed for accounts created before the user_id FK migration)
+  useEffect(() => {
+    if (!user || !localStorage.getItem('access_token')) return;
+    authAPI.me().then(({ data }) => {
+      const refreshed = { ...user, ...data };
+      localStorage.setItem('user', JSON.stringify(refreshed));
+      setUser(refreshed);
+    }).catch(() => { /* token may be expired — leave user as-is */ });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // run once on mount
+
   const login = async (username, password) => {
     setLoading(true);
     try {

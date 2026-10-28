@@ -92,15 +92,41 @@ async def alerts_websocket(
     token: Optional[str] = Query(None),
 ):
     """
-    Real-time alert stream for Admin Dashboard.
+    Real-time alert stream for Admin Dashboard only.
     Connect with:  ws://localhost:8000/ws/alerts?token=<JWT>
-    On connection, sends a 'CONNECTED' handshake.
+    Closes with code 4001 if token is missing/invalid.
+    Closes with code 4003 if the authenticated user is not an admin.
+    On successful connection, sends a 'CONNECTED' handshake.
     Receives 'NEW_ALERT' events pushed by the SQS worker whenever
     a trade is flagged.
     """
+    from app.core.security import decode_access_token
+    from app.db.session import SessionLocal
+
+    # ── Authenticate & authorise before accepting the socket ──────────────────
+    if not token:
+        await websocket.close(code=4001)
+        return
+
+    payload = decode_access_token(token)
+    if payload is None:
+        await websocket.close(code=4001)
+        return
+
+    db = SessionLocal()
+    try:
+        user_id = payload.get("sub")
+        user: User | None = db.query(User).filter(User.id == int(user_id)).first() if user_id else None
+    finally:
+        db.close()
+
+    if user is None or user.role != "admin":
+        await websocket.close(code=4003)
+        return
+
+    # ── Admin confirmed — accept and stream alerts ────────────────────────────
     await ws_manager.connect(websocket)
     try:
-        # Send connection acknowledgement
         await websocket.send_json({
             "event": "CONNECTED",
             "message": "Market Surveillance WebSocket connected. Awaiting alerts...",

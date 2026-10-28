@@ -6,7 +6,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from app.core.dependencies import get_db
+from app.core.dependencies import get_current_user, get_db
 import re
 from app.core.security import create_access_token, hash_password, verify_password
 from app.models.trader_account import TraderAccount
@@ -15,6 +15,21 @@ from app.schemas.auth import LoginRequest, RegisterRequest, TokenResponse
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
 
+
+@router.get("/me", response_model=TokenResponse)
+def me(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Return the authenticated user's profile including their linked trader_id."""
+    token = create_access_token({"sub": str(current_user.id), "role": current_user.role})
+    return TokenResponse(
+        access_token=token,
+        role=current_user.role,
+        user_id=current_user.id,
+        username=current_user.username,
+        trader_id=current_user.trader_id,  # stamped at registration / backfill
+    )
 
 @router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
 def register(payload: RegisterRequest, db: Session = Depends(get_db)):
@@ -68,6 +83,7 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
 
         trader_profile = TraderAccount(
             trader_id=new_trader_id,
+            user_id=user.id,
             trader_type=archetype,
             preferred_symbols="",
             preferred_sectors=payload.preferred_sectors or "IT;Finance",
@@ -85,7 +101,8 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
             notional_std=float(notional_std),
             normal_trades_per_day=3.0,
         )
-        db.add(trader_profile)
+    user.trader_id = new_trader_id   # authoritative link on the User row
+    db.add(trader_profile)
 
     db.commit()
     db.refresh(user)
@@ -117,10 +134,12 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Account is inactive")
 
     token = create_access_token({"sub": str(user.id), "role": user.role})
+
     return TokenResponse(
         access_token=token,
         role=user.role,
         user_id=user.id,
         username=user.username,
+        trader_id=user.trader_id,   # read directly from User — no FK lookup needed
     )
 

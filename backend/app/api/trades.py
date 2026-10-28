@@ -65,6 +65,21 @@ def _get_symbol_or_404(symbol: str, db: Session) -> Symbol:
     return sym
 
 
+def _resolve_caller_trader(current_user: User, db: Session) -> TraderAccount | None:
+    """
+    Return the TraderAccount that belongs to the calling user.
+    - For trader-role users: FK lookup (user_id). Returns None if not linked yet.
+    - For admin-role users: always returns None (caller picks the trader themselves).
+    """
+    if current_user.role != "trader":
+        return None
+    return (
+        db.query(TraderAccount)
+        .filter(TraderAccount.user_id == current_user.id)
+        .first()
+    )
+
+
 # ── Manual trade entry ────────────────────────────────────────────────────────
 
 @router.post("", response_model=TradeResponse, status_code=status.HTTP_201_CREATED)
@@ -107,18 +122,19 @@ async def generate_suspicious_trade(
 ):
     """
     1-Click: generate and immediately submit one realistic suspicious trade.
-    Randomly picks an anomaly archetype (LARGE_TRADE, PRE_EVENT_ACTIVITY,
-    UNUSUAL_TIME, FREQUENCY_SPIKE, BEHAVIOR_CHANGE) and crafts a trade
-    that will trigger a HIGH-risk alert.
+    For trader-role callers the trade is always assigned to their own account.
+    For admin-role callers a random conservative trader is picked (demo variety).
     """
-    # Pick a random conservative trader (small baseline makes anomaly obvious)
-    conservative_traders = (
-        db.query(TraderAccount)
-        .filter(TraderAccount.trader_type == "Conservative")
-        .all()
-    )
-    traders = conservative_traders or db.query(TraderAccount).all()
-    trader = random.choice(traders)
+    # Use caller's own account if they are a trader; else pick a random conservative one
+    trader = _resolve_caller_trader(current_user, db)
+    if trader is None:
+        conservative_traders = (
+            db.query(TraderAccount)
+            .filter(TraderAccount.trader_type == "Conservative")
+            .all()
+        )
+        pool = conservative_traders or db.query(TraderAccount).all()
+        trader = random.choice(pool)
 
     # Pick a high-priced symbol for maximum notional impact
     symbols = db.query(Symbol).order_by(Symbol.baseline_price.desc()).limit(5).all()
@@ -159,8 +175,13 @@ async def generate_normal_trade(
 ):
     """
     1-Click: generate one fully normal baseline trade (will score LOW risk).
+    For trader-role callers the trade is assigned to their own account.
+    For admin-role callers a random trader is picked.
     """
-    trader = random.choice(db.query(TraderAccount).all())
+    trader = _resolve_caller_trader(current_user, db)
+    if trader is None:
+        trader = random.choice(db.query(TraderAccount).all())
+
     preferred = (trader.preferred_symbols or "").split(";")
     sym_code = random.choice([s for s in preferred if s]) if preferred else None
 
@@ -254,8 +275,43 @@ def list_trades(
     current_user: User = Depends(get_current_user),
 ):
     q = db.query(Trade).options(joinedload(Trade.alert))
-    if trader_id:
-        q = q.filter(Trade.trader_id == trader_id)
+
+    if current_user.role == "trader":
+        # Step 1: Try the FK link (fast path for accounts created after the migration)
+        linked = (
+            db.query(TraderAccount)
+            .filter(TraderAccount.user_id == current_user.id)
+            .first()
+        )
+
+        if linked:
+            q = q.filter(Trade.trader_id == linked.trader_id)
+        elif trader_id:
+            # Step 2: Legacy account — user_id FK not yet set.
+            # Accept the trader_id hint from the client, but validate it server-side.
+            candidate = (
+                db.query(TraderAccount)
+                .filter(TraderAccount.trader_id == trader_id)
+                .first()
+            )
+            if candidate is None:
+                return TradeListResponse(total=0, trades=[])
+            if candidate.user_id is not None and candidate.user_id != current_user.id:
+                # This trader_id is already claimed by another user — deny
+                raise HTTPException(status_code=403, detail="Trader account belongs to another user")
+            # Auto-backfill the FK so future requests use the fast path
+            if candidate.user_id is None:
+                candidate.user_id = current_user.id
+                db.commit()
+            q = q.filter(Trade.trader_id == trader_id)
+        else:
+            # No FK and no hint — return empty to avoid leaking other traders' data
+            return TradeListResponse(total=0, trades=[])
+    else:
+        # Admins get full visibility; optional trader_id filter still works
+        if trader_id:
+            q = q.filter(Trade.trader_id == trader_id)
+
     if symbol:
         q = q.filter(Trade.symbol == symbol)
     if side:

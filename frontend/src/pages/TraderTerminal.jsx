@@ -18,7 +18,7 @@ export default function TraderTerminal() {
 
   // Form state
   const [form, setForm] = useState({
-    trader_id: '',
+    trader_id: user?.trader_id || '',
     symbol: '',
     side: 'BUY',
     quantity: '',
@@ -43,14 +43,14 @@ export default function TraderTerminal() {
 
   const loadTrades = useCallback(() => {
     setLoadingTrades(true);
-    tradesAPI.list({ page: 1, page_size: 30 })
+    tradesAPI.list({ page: 1, page_size: 30, ...(user?.trader_id ? { trader_id: user.trader_id } : {}) })
       .then(({ data }) => {
         const list = Array.isArray(data) ? data : data.trades || [];
         setTrades(list);
       })
       .catch(() => {})
       .finally(() => setLoadingTrades(false));
-  }, []);
+  }, [user?.trader_id]);
 
   useEffect(() => { loadTrades(); }, [loadTrades]);
 
@@ -160,19 +160,33 @@ export default function TraderTerminal() {
           <form onSubmit={handleSubmitTrade} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
             <div className="form-group">
               <label className="form-label" htmlFor="trade-trader">Trader ID</label>
-              <select
-                id="trade-trader"
-                className="form-select"
-                value={form.trader_id}
-                onChange={(e) => handleFormChange('trader_id', e.target.value)}
-              >
-                <option value="">Select trader...</option>
-                {traders.slice(0, 20).map((t) => (
-                  <option key={t.trader_id} value={t.trader_id}>
-                    {t.trader_id} ({t.trader_type})
-                  </option>
-                ))}
-              </select>
+              {user?.role === 'admin' ? (
+                <select
+                  id="trade-trader"
+                  className="form-select"
+                  value={form.trader_id}
+                  onChange={(e) => handleFormChange('trader_id', e.target.value)}
+                >
+                  <option value="">Select trader...</option>
+                  {traders.slice(0, 20).map((t) => (
+                    <option key={t.trader_id} value={t.trader_id}>
+                      {t.trader_id} ({t.trader_type})
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <div style={{
+                  padding: '8px 12px',
+                  background: 'var(--bg-glass)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-sm)',
+                  color: 'var(--text-accent)',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                }}>
+                  {user?.trader_id || '—'}
+                </div>
+              )}
             </div>
 
             <div className="form-group">

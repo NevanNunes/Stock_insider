@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Float, Integer, String, Text
+from sqlalchemy import Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -22,6 +22,7 @@ class TraderAccount(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     trader_id: Mapped[str] = mapped_column(String(16), unique=True, index=True, nullable=False)  # e.g. TRD001
+    user_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("users.id"), nullable=True, index=True)  # set when created via registration
     trader_type: Mapped[str] = mapped_column(String(64), nullable=False)   # archetype
     preferred_symbols: Mapped[str] = mapped_column(Text, nullable=True)    # semicolon-separated
     preferred_sectors: Mapped[str] = mapped_column(Text, nullable=True)

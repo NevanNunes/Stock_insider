@@ -52,6 +52,8 @@ export function useWebSocket(onMessage) {
   }, []);
 
   const connect = useCallback(() => {
+    // null handler = caller explicitly opted out (e.g. trader role — no WS access)
+    if (!onMessageRef.current) return;
     if (!localStorage.getItem('access_token')) return;
 
     // Do not reconnect if already open or connecting
@@ -86,8 +88,13 @@ export function useWebSocket(onMessage) {
       } catch { /* ignore parse errors */ }
     };
 
-    ws.onclose = () => {
+    ws.onclose = (event) => {
       if (!mountedRef.current) return;
+      // 4001 = invalid/missing token, 4003 = not admin — server rejected us, stop retrying
+      if (event.code === 4001 || event.code === 4003) {
+        setStatus('rejected');
+        return;
+      }
       setStatus('disconnected');
       const attempt = reconnectAttempts.current;
       if (attempt < RECONNECT_DELAYS.length) {
